@@ -1,0 +1,929 @@
+[
+  {
+    "movie_id":"movie_0001",
+    "title":"The Last Guardian",
+    "genres":"Action|Adventure",
+    "actors":"Idris Elba|Natalie Portman|Scarlett Johansson",
+    "average_rating":7.2,
+    "release_year":1990,
+    "runtime":153.0
+  },
+  {
+    "movie_id":"movie_0002",
+    "title":"Shadow Strike",
+    "genres":"Action|Thriller",
+    "actors":"Frances McDormand|Hugh Jackman",
+    "average_rating":6.7,
+    "release_year":2001,
+    "runtime":96.0
+  },
+  {
+    "movie_id":"movie_0003",
+    "title":"Steel Warrior",
+    "genres":"Action|Sci-Fi",
+    "actors":"Will Smith|Helen Mirren",
+    "average_rating":9.4,
+    "release_year":2020,
+    "runtime":106.0
+  },
+  {
+    "movie_id":"movie_0004",
+    "title":"Night Hunter",
+    "genres":"Action|Crime",
+    "actors":"Tom Hanks|Julianne Moore|Jessica Chastain",
+    "average_rating":6.6,
+    "release_year":2007,
+    "runtime":175.0
+  },
+  {
+    "movie_id":"movie_0005",
+    "title":"Phoenix Rising",
+    "genres":"Action|Drama",
+    "actors":"Ryan Gosling|Saoirse Ronan|Anthony Hopkins|Jake Gyllenhaal",
+    "average_rating":8.8,
+    "release_year":2009,
+    "runtime":136.0
+  },
+  {
+    "movie_id":"movie_0006",
+    "title":"Silent Hearts",
+    "genres":"Drama|Romance",
+    "actors":"Will Smith|Tilda Swinton|Matt Damon|Mark Wahlberg",
+    "average_rating":8.5,
+    "release_year":1996,
+    "runtime":176.0
+  },
+  {
+    "movie_id":"movie_0007",
+    "title":"Broken Dreams",
+    "genres":"Drama",
+    "actors":"Meryl Streep|Margot Robbie",
+    "average_rating":9.6,
+    "release_year":2017,
+    "runtime":155.0
+  },
+  {
+    "movie_id":"movie_0008",
+    "title":"The Long Road",
+    "genres":"Drama|Biography",
+    "actors":"Tilda Swinton|Tom Hanks|Meryl Streep",
+    "average_rating":9.7,
+    "release_year":2021,
+    "runtime":126.0
+  },
+  {
+    "movie_id":"movie_0009",
+    "title":"Whispers in Time",
+    "genres":"Drama|History",
+    "actors":"Charlize Theron|Tilda Swinton|Robert Downey Jr.|Natalie Portman",
+    "average_rating":7.4,
+    "release_year":2018,
+    "runtime":132.0
+  },
+  {
+    "movie_id":"movie_0010",
+    "title":"Fading Light",
+    "genres":"Drama|Family",
+    "actors":"Samuel L. Jackson|Ryan Reynolds|Will Smith|Christian Bale",
+    "average_rating":9.4,
+    "release_year":1991,
+    "runtime":174.0
+  },
+  {
+    "movie_id":"movie_0011",
+    "title":"Laugh Out Loud",
+    "genres":"Comedy",
+    "actors":"Samuel L. Jackson|Robert De Niro|Matt Damon",
+    "average_rating":9.1,
+    "release_year":2009,
+    "runtime":null
+  },
+  {
+    "movie_id":"movie_0012",
+    "title":"Crazy Adventures",
+    "genres":"Comedy|Adventure",
+    "actors":"Ryan Gosling|Charlize Theron",
+    "average_rating":8.6,
+    "release_year":2015,
+    "runtime":95.0
+  },
+  {
+    "movie_id":"movie_0013",
+    "title":"The Funny Side",
+    "genres":"Comedy|Romance",
+    "actors":"Charlize Theron|Brad Pitt|Robert De Niro|Anthony Hopkins",
+    "average_rating":9.2,
+    "release_year":2010,
+    "runtime":94.0
+  },
+  {
+    "movie_id":"movie_0014",
+    "title":"Mad House",
+    "genres":"Comedy|Family",
+    "actors":"Brie Larson|Lupita Nyong'o",
+    "average_rating":7.8,
+    "release_year":2015,
+    "runtime":131.0
+  },
+  {
+    "movie_id":"movie_0015",
+    "title":"Comedy Central",
+    "genres":"Comedy",
+    "actors":"Hugh Jackman|Morgan Freeman",
+    "average_rating":9.7,
+    "release_year":2001,
+    "runtime":101.0
+  },
+  {
+    "movie_id":"movie_0016",
+    "title":"Dark Secrets",
+    "genres":"Thriller|Mystery",
+    "actors":"Leonardo DiCaprio|Frances McDormand|Amy Adams",
+    "average_rating":9.1,
+    "release_year":2013,
+    "runtime":114.0
+  },
+  {
+    "movie_id":"movie_0017",
+    "title":"Edge of Tomorrow",
+    "genres":"Thriller|Sci-Fi",
+    "actors":"Saoirse Ronan|Helen Mirren",
+    "average_rating":9.7,
+    "release_year":1997,
+    "runtime":166.0
+  },
+  {
+    "movie_id":"movie_0018",
+    "title":"The Pursuit",
+    "genres":"Thriller|Crime",
+    "actors":"Cate Blanchett|Jessica Chastain",
+    "average_rating":9.7,
+    "release_year":2004,
+    "runtime":136.0
+  },
+  {
+    "movie_id":"movie_0019",
+    "title":"Hidden Truth",
+    "genres":"Thriller|Drama",
+    "actors":"Tilda Swinton|Frances McDormand|Jessica Chastain|Ryan Gosling",
+    "average_rating":10.0,
+    "release_year":2011,
+    "runtime":175.0
+  },
+  {
+    "movie_id":"movie_0020",
+    "title":"Final Hour",
+    "genres":"Thriller|Action",
+    "actors":"Brie Larson|Brad Pitt",
+    "average_rating":10.0,
+    "release_year":2001,
+    "runtime":126.0
+  },
+  {
+    "movie_id":"movie_0021",
+    "title":"Nightmare House",
+    "genres":"Horror",
+    "actors":"Morgan Freeman|Jessica Chastain|Viola Davis",
+    "average_rating":9.5,
+    "release_year":2007,
+    "runtime":128.0
+  },
+  {
+    "movie_id":"movie_0022",
+    "title":"The Haunting",
+    "genres":"Horror|Thriller",
+    "actors":"Charlize Theron|Idris Elba|Leonardo DiCaprio|Brie Larson",
+    "average_rating":8.8,
+    "release_year":2015,
+    "runtime":90.0
+  },
+  {
+    "movie_id":"movie_0023",
+    "title":"Dark Woods",
+    "genres":"Horror|Mystery",
+    "actors":"Robert Downey Jr.|Morgan Freeman",
+    "average_rating":9.3,
+    "release_year":2009,
+    "runtime":133.0
+  },
+  {
+    "movie_id":"movie_0024",
+    "title":"Blood Moon",
+    "genres":"Horror|Supernatural",
+    "actors":"Margot Robbie|Morgan Freeman|Reese Witherspoon",
+    "average_rating":8.3,
+    "release_year":2019,
+    "runtime":102.0
+  },
+  {
+    "movie_id":"movie_0025",
+    "title":"Terror Night",
+    "genres":"Horror",
+    "actors":"Tilda Swinton|Emma Stone",
+    "average_rating":8.2,
+    "release_year":1994,
+    "runtime":150.0
+  },
+  {
+    "movie_id":"movie_0026",
+    "title":"Future World",
+    "genres":"Sci-Fi|Adventure",
+    "actors":"Ryan Gosling|Tilda Swinton|Jennifer Lawrence|Anthony Hopkins",
+    "average_rating":7.2,
+    "release_year":2003,
+    "runtime":97.0
+  },
+  {
+    "movie_id":"movie_0027",
+    "title":"Space Odyssey",
+    "genres":"Sci-Fi|Drama",
+    "actors":"Frances McDormand|Lupita Nyong'o",
+    "average_rating":6.8,
+    "release_year":1994,
+    "runtime":122.0
+  },
+  {
+    "movie_id":"movie_0028",
+    "title":"Cyber Wars",
+    "genres":"Sci-Fi|Action",
+    "actors":"Charlize Theron|Jessica Chastain",
+    "average_rating":9.4,
+    "release_year":2013,
+    "runtime":143.0
+  },
+  {
+    "movie_id":"movie_0029",
+    "title":"Time Paradox",
+    "genres":"Sci-Fi|Thriller",
+    "actors":"Cate Blanchett|Natalie Portman|Sandra Bullock",
+    "average_rating":7.8,
+    "release_year":1993,
+    "runtime":156.0
+  },
+  {
+    "movie_id":"movie_0030",
+    "title":"Alien Contact",
+    "genres":"Sci-Fi",
+    "actors":"Brad Pitt|Tom Hanks|Meryl Streep|Mark Wahlberg",
+    "average_rating":7.9,
+    "release_year":1994,
+    "runtime":113.0
+  },
+  {
+    "movie_id":"movie_0031",
+    "title":"Love Story",
+    "genres":"Romance|Drama",
+    "actors":"Brie Larson|Tom Hanks|Julianne Moore",
+    "average_rating":7.3,
+    "release_year":2003,
+    "runtime":134.0
+  },
+  {
+    "movie_id":"movie_0032",
+    "title":"First Kiss",
+    "genres":"Romance|Comedy",
+    "actors":"Robert Downey Jr.|Julianne Moore",
+    "average_rating":8.8,
+    "release_year":1996,
+    "runtime":120.0
+  },
+  {
+    "movie_id":"movie_0033",
+    "title":"Eternal Love",
+    "genres":"Romance",
+    "actors":"Matt Damon|Denzel Washington",
+    "average_rating":9.3,
+    "release_year":2021,
+    "runtime":108.0
+  },
+  {
+    "movie_id":"movie_0034",
+    "title":"Summer Romance",
+    "genres":"Romance|Drama",
+    "actors":"Mark Wahlberg|Helen Mirren|Scarlett Johansson",
+    "average_rating":9.0,
+    "release_year":2010,
+    "runtime":176.0
+  },
+  {
+    "movie_id":"movie_0035",
+    "title":"Heart's Desire",
+    "genres":"Romance",
+    "actors":"Frances McDormand|Cate Blanchett|Helen Mirren",
+    "average_rating":9.5,
+    "release_year":2013,
+    "runtime":155.0
+  },
+  {
+    "movie_id":"movie_0036",
+    "title":"The Last Guardian 2",
+    "genres":"Action|Adventure",
+    "actors":"Leonardo DiCaprio|Natalie Portman",
+    "average_rating":9.4,
+    "release_year":2020,
+    "runtime":108.0
+  },
+  {
+    "movie_id":"movie_0037",
+    "title":"Shadow Strike 2",
+    "genres":"Action|Thriller",
+    "actors":"Mark Wahlberg|Christian Bale",
+    "average_rating":6.9,
+    "release_year":2020,
+    "runtime":163.0
+  },
+  {
+    "movie_id":"movie_0038",
+    "title":"Steel Warrior 2",
+    "genres":"Action|Sci-Fi",
+    "actors":"Denzel Washington|Samuel L. Jackson|Kevin Costner|Idris Elba",
+    "average_rating":7.0,
+    "release_year":1994,
+    "runtime":132.0
+  },
+  {
+    "movie_id":"movie_0039",
+    "title":"Night Hunter 2",
+    "genres":"Action|Crime",
+    "actors":"Hugh Jackman|Robert Downey Jr.|Saoirse Ronan",
+    "average_rating":9.4,
+    "release_year":2014,
+    "runtime":94.0
+  },
+  {
+    "movie_id":"movie_0040",
+    "title":"Phoenix Rising 2",
+    "genres":"Action|Drama",
+    "actors":"Robert Downey Jr.|Samuel L. Jackson|Natalie Portman",
+    "average_rating":7.2,
+    "release_year":1990,
+    "runtime":140.0
+  },
+  {
+    "movie_id":"movie_0041",
+    "title":"Silent Hearts 2",
+    "genres":"Drama|Romance",
+    "actors":"Margot Robbie|Samuel L. Jackson|Cate Blanchett|Ryan Reynolds",
+    "average_rating":6.8,
+    "release_year":1996,
+    "runtime":133.0
+  },
+  {
+    "movie_id":"movie_0042",
+    "title":"Broken Dreams 2",
+    "genres":"Drama",
+    "actors":"Leonardo DiCaprio|Will Smith|Tom Hanks",
+    "average_rating":8.9,
+    "release_year":2023,
+    "runtime":116.0
+  },
+  {
+    "movie_id":"movie_0043",
+    "title":"The Long Road 2",
+    "genres":"Drama|Biography",
+    "actors":"Anthony Hopkins|Mark Wahlberg|Viola Davis|Robert Downey Jr.",
+    "average_rating":8.7,
+    "release_year":2019,
+    "runtime":149.0
+  },
+  {
+    "movie_id":"movie_0044",
+    "title":"Whispers in Time 2",
+    "genres":"Drama|History",
+    "actors":"Frances McDormand|Leonardo DiCaprio|Ryan Reynolds",
+    "average_rating":9.7,
+    "release_year":1994,
+    "runtime":150.0
+  },
+  {
+    "movie_id":"movie_0045",
+    "title":"Fading Light 2",
+    "genres":"Drama|Family",
+    "actors":"Idris Elba|Tilda Swinton",
+    "average_rating":9.5,
+    "release_year":1992,
+    "runtime":157.0
+  },
+  {
+    "movie_id":"movie_0046",
+    "title":"Laugh Out Loud 2",
+    "genres":"Comedy",
+    "actors":"Lupita Nyong'o|Reese Witherspoon|Jake Gyllenhaal",
+    "average_rating":8.2,
+    "release_year":2015,
+    "runtime":160.0
+  },
+  {
+    "movie_id":"movie_0047",
+    "title":"Crazy Adventures 2",
+    "genres":"Comedy|Adventure",
+    "actors":"Natalie Portman|Will Smith|Christian Bale|Saoirse Ronan",
+    "average_rating":9.8,
+    "release_year":2015,
+    "runtime":114.0
+  },
+  {
+    "movie_id":"movie_0048",
+    "title":"The Funny Side 2",
+    "genres":"Comedy|Romance",
+    "actors":"Margot Robbie|Julianne Moore",
+    "average_rating":9.2,
+    "release_year":2005,
+    "runtime":159.0
+  },
+  {
+    "movie_id":"movie_0049",
+    "title":"Mad House 2",
+    "genres":"Comedy|Family",
+    "actors":"Morgan Freeman|Amy Adams|Jessica Chastain|Anthony Hopkins",
+    "average_rating":9.9,
+    "release_year":2005,
+    "runtime":143.0
+  },
+  {
+    "movie_id":"movie_0050",
+    "title":"Comedy Central 2",
+    "genres":"Comedy",
+    "actors":"Margot Robbie|Charlize Theron|Kevin Costner|Tom Hanks",
+    "average_rating":7.6,
+    "release_year":2022,
+    "runtime":152.0
+  },
+  {
+    "movie_id":"movie_0051",
+    "title":"Dark Secrets 2",
+    "genres":"Thriller|Mystery",
+    "actors":"Robert De Niro|Viola Davis",
+    "average_rating":7.7,
+    "release_year":1992,
+    "runtime":128.0
+  },
+  {
+    "movie_id":"movie_0052",
+    "title":"Edge of Tomorrow 2",
+    "genres":"Thriller|Sci-Fi",
+    "actors":"Robert De Niro|Lupita Nyong'o|Christian Bale|Margot Robbie",
+    "average_rating":8.7,
+    "release_year":2000,
+    "runtime":122.0
+  },
+  {
+    "movie_id":"movie_0053",
+    "title":"The Pursuit 2",
+    "genres":"Thriller|Crime",
+    "actors":"Robert Downey Jr.|Samuel L. Jackson",
+    "average_rating":7.7,
+    "release_year":1998,
+    "runtime":102.0
+  },
+  {
+    "movie_id":"movie_0054",
+    "title":"Hidden Truth 2",
+    "genres":"Thriller|Drama",
+    "actors":"Tom Hanks|Jessica Chastain",
+    "average_rating":9.2,
+    "release_year":2023,
+    "runtime":177.0
+  },
+  {
+    "movie_id":"movie_0055",
+    "title":"Final Hour 2",
+    "genres":"Thriller|Action",
+    "actors":"Anthony Hopkins|Mark Wahlberg|Ryan Reynolds|Robert Downey Jr.",
+    "average_rating":8.2,
+    "release_year":2014,
+    "runtime":118.0
+  },
+  {
+    "movie_id":"movie_0056",
+    "title":"Nightmare House 2",
+    "genres":"Horror",
+    "actors":"Mark Wahlberg|Helen Mirren|Chris Evans|Charlize Theron",
+    "average_rating":8.7,
+    "release_year":2014,
+    "runtime":154.0
+  },
+  {
+    "movie_id":"movie_0057",
+    "title":"The Haunting 2",
+    "genres":"Horror|Thriller",
+    "actors":"Jake Gyllenhaal|Margot Robbie|Chris Evans|Sandra Bullock",
+    "average_rating":9.2,
+    "release_year":2002,
+    "runtime":162.0
+  },
+  {
+    "movie_id":"movie_0058",
+    "title":"Dark Woods 2",
+    "genres":"Horror|Mystery",
+    "actors":"Cate Blanchett|Jessica Chastain|Idris Elba|Meryl Streep",
+    "average_rating":9.3,
+    "release_year":2013,
+    "runtime":116.0
+  },
+  {
+    "movie_id":"movie_0059",
+    "title":"Blood Moon 2",
+    "genres":"Horror|Supernatural",
+    "actors":"Robert Downey Jr.|Robert De Niro|Scarlett Johansson|Sandra Bullock",
+    "average_rating":8.6,
+    "release_year":1997,
+    "runtime":115.0
+  },
+  {
+    "movie_id":"movie_0060",
+    "title":"Terror Night 2",
+    "genres":"Horror",
+    "actors":"Jake Gyllenhaal|Margot Robbie|Helen Mirren",
+    "average_rating":9.9,
+    "release_year":2003,
+    "runtime":134.0
+  },
+  {
+    "movie_id":"movie_0061",
+    "title":"Future World 2",
+    "genres":"Sci-Fi|Adventure",
+    "actors":"Viola Davis|Natalie Portman|Sandra Bullock|Ryan Gosling",
+    "average_rating":8.7,
+    "release_year":2018,
+    "runtime":115.0
+  },
+  {
+    "movie_id":"movie_0062",
+    "title":"Space Odyssey 2",
+    "genres":"Sci-Fi|Drama",
+    "actors":"Morgan Freeman|Will Smith",
+    "average_rating":8.4,
+    "release_year":2022,
+    "runtime":97.0
+  },
+  {
+    "movie_id":"movie_0063",
+    "title":"Cyber Wars 2",
+    "genres":"Sci-Fi|Action",
+    "actors":"Scarlett Johansson|Amy Adams|Frances McDormand",
+    "average_rating":6.5,
+    "release_year":2009,
+    "runtime":97.0
+  },
+  {
+    "movie_id":"movie_0064",
+    "title":"Time Paradox 2",
+    "genres":"Sci-Fi|Thriller",
+    "actors":"Tilda Swinton|Denzel Washington|Scarlett Johansson|Robert De Niro",
+    "average_rating":7.6,
+    "release_year":2001,
+    "runtime":178.0
+  },
+  {
+    "movie_id":"movie_0065",
+    "title":"Alien Contact 2",
+    "genres":"Sci-Fi",
+    "actors":"Hugh Jackman|Reese Witherspoon",
+    "average_rating":9.7,
+    "release_year":1991,
+    "runtime":169.0
+  },
+  {
+    "movie_id":"movie_0066",
+    "title":"Love Story 2",
+    "genres":"Romance|Drama",
+    "actors":"Margot Robbie|Viola Davis|Amy Adams",
+    "average_rating":7.6,
+    "release_year":1992,
+    "runtime":150.0
+  },
+  {
+    "movie_id":"movie_0067",
+    "title":"First Kiss 2",
+    "genres":"Romance|Comedy",
+    "actors":"Julianne Moore|Morgan Freeman|Reese Witherspoon|Idris Elba",
+    "average_rating":7.8,
+    "release_year":2021,
+    "runtime":160.0
+  },
+  {
+    "movie_id":"movie_0068",
+    "title":"Eternal Love 2",
+    "genres":"Romance",
+    "actors":"Leonardo DiCaprio|Viola Davis|Margot Robbie|Matt Damon",
+    "average_rating":9.6,
+    "release_year":2002,
+    "runtime":102.0
+  },
+  {
+    "movie_id":"movie_0069",
+    "title":"Summer Romance 2",
+    "genres":"Romance|Drama",
+    "actors":"Scarlett Johansson|Matt Damon",
+    "average_rating":9.1,
+    "release_year":1992,
+    "runtime":165.0
+  },
+  {
+    "movie_id":"movie_0070",
+    "title":"Heart's Desire 2",
+    "genres":"Romance",
+    "actors":"Amy Adams|Matt Damon",
+    "average_rating":9.0,
+    "release_year":2010,
+    "runtime":103.0
+  },
+  {
+    "movie_id":"movie_0071",
+    "title":"The Last Guardian 3",
+    "genres":"Action|Adventure",
+    "actors":"Reese Witherspoon|Tom Hanks|Natalie Portman",
+    "average_rating":9.9,
+    "release_year":2017,
+    "runtime":118.0
+  },
+  {
+    "movie_id":"movie_0072",
+    "title":"Shadow Strike 3",
+    "genres":"Action|Thriller",
+    "actors":"Cate Blanchett|Jessica Chastain",
+    "average_rating":9.7,
+    "release_year":2023,
+    "runtime":150.0
+  },
+  {
+    "movie_id":"movie_0073",
+    "title":"Steel Warrior 3",
+    "genres":"Action|Sci-Fi",
+    "actors":"Robert De Niro|Idris Elba|Christian Bale",
+    "average_rating":9.9,
+    "release_year":2018,
+    "runtime":null
+  },
+  {
+    "movie_id":"movie_0074",
+    "title":"Night Hunter 3",
+    "genres":"Action|Crime",
+    "actors":"Helen Mirren|Meryl Streep|Kevin Costner|Cate Blanchett",
+    "average_rating":9.7,
+    "release_year":1991,
+    "runtime":117.0
+  },
+  {
+    "movie_id":"movie_0075",
+    "title":"Phoenix Rising 3",
+    "genres":"Action|Drama",
+    "actors":"Jake Gyllenhaal|Tom Hanks|Lupita Nyong'o",
+    "average_rating":8.7,
+    "release_year":2014,
+    "runtime":93.0
+  },
+  {
+    "movie_id":"movie_0076",
+    "title":"Silent Hearts 3",
+    "genres":"Drama|Romance",
+    "actors":"Saoirse Ronan|Cate Blanchett|Jake Gyllenhaal|Jennifer Lawrence",
+    "average_rating":8.0,
+    "release_year":2003,
+    "runtime":150.0
+  },
+  {
+    "movie_id":"movie_0077",
+    "title":"Broken Dreams 3",
+    "genres":"Drama",
+    "actors":"Tilda Swinton|Scarlett Johansson",
+    "average_rating":8.5,
+    "release_year":2019,
+    "runtime":154.0
+  },
+  {
+    "movie_id":"movie_0078",
+    "title":"The Long Road 3",
+    "genres":"Drama|Biography",
+    "actors":"Amy Adams|Chris Evans|Will Smith",
+    "average_rating":6.4,
+    "release_year":2022,
+    "runtime":165.0
+  },
+  {
+    "movie_id":"movie_0079",
+    "title":"Whispers in Time 3",
+    "genres":"Drama|History",
+    "actors":"Brad Pitt|Ryan Gosling|Will Smith|Frances McDormand",
+    "average_rating":9.1,
+    "release_year":1991,
+    "runtime":138.0
+  },
+  {
+    "movie_id":"movie_0080",
+    "title":"Fading Light 3",
+    "genres":"Drama|Family",
+    "actors":"Denzel Washington|Morgan Freeman|Leonardo DiCaprio",
+    "average_rating":9.9,
+    "release_year":2021,
+    "runtime":163.0
+  },
+  {
+    "movie_id":"movie_0081",
+    "title":"Laugh Out Loud 3",
+    "genres":"Comedy",
+    "actors":"Saoirse Ronan|Ryan Reynolds",
+    "average_rating":7.9,
+    "release_year":1998,
+    "runtime":100.0
+  },
+  {
+    "movie_id":"movie_0082",
+    "title":"Crazy Adventures 3",
+    "genres":"Comedy|Adventure",
+    "actors":"Mark Wahlberg|Matt Damon|Robert Downey Jr.|Chris Evans",
+    "average_rating":8.1,
+    "release_year":2016,
+    "runtime":148.0
+  },
+  {
+    "movie_id":"movie_0083",
+    "title":"The Funny Side 3",
+    "genres":"Comedy|Romance",
+    "actors":"Julianne Moore|Anthony Hopkins|Matt Damon",
+    "average_rating":9.8,
+    "release_year":2004,
+    "runtime":115.0
+  },
+  {
+    "movie_id":"movie_0084",
+    "title":"Mad House 3",
+    "genres":"Comedy|Family",
+    "actors":"Matt Damon|Viola Davis|Chris Evans",
+    "average_rating":7.7,
+    "release_year":2000,
+    "runtime":106.0
+  },
+  {
+    "movie_id":"movie_0085",
+    "title":"Comedy Central 3",
+    "genres":"Comedy",
+    "actors":"Sandra Bullock|Viola Davis",
+    "average_rating":7.8,
+    "release_year":1993,
+    "runtime":137.0
+  },
+  {
+    "movie_id":"movie_0086",
+    "title":"Dark Secrets 3",
+    "genres":"Thriller|Mystery",
+    "actors":"Anthony Hopkins|Matt Damon|Kevin Costner|Emma Stone",
+    "average_rating":8.7,
+    "release_year":2008,
+    "runtime":171.0
+  },
+  {
+    "movie_id":"movie_0087",
+    "title":"Edge of Tomorrow 3",
+    "genres":"Thriller|Sci-Fi",
+    "actors":"Brie Larson|Meryl Streep",
+    "average_rating":7.1,
+    "release_year":1998,
+    "runtime":100.0
+  },
+  {
+    "movie_id":"movie_0088",
+    "title":"The Pursuit 3",
+    "genres":"Thriller|Crime",
+    "actors":"Meryl Streep|Ryan Reynolds|Sandra Bullock|Tom Hanks",
+    "average_rating":8.6,
+    "release_year":1992,
+    "runtime":116.0
+  },
+  {
+    "movie_id":"movie_0089",
+    "title":"Hidden Truth 3",
+    "genres":"Thriller|Drama",
+    "actors":"Scarlett Johansson|Mark Wahlberg|Robert Downey Jr.",
+    "average_rating":9.3,
+    "release_year":2019,
+    "runtime":142.0
+  },
+  {
+    "movie_id":"movie_0090",
+    "title":"Final Hour 3",
+    "genres":"Thriller|Action",
+    "actors":"Charlize Theron|Julianne Moore",
+    "average_rating":8.2,
+    "release_year":2016,
+    "runtime":117.0
+  },
+  {
+    "movie_id":"movie_0091",
+    "title":"Nightmare House 3",
+    "genres":"Horror",
+    "actors":"Hugh Jackman|Cate Blanchett|Brad Pitt|Idris Elba",
+    "average_rating":7.0,
+    "release_year":2022,
+    "runtime":144.0
+  },
+  {
+    "movie_id":"movie_0092",
+    "title":"The Haunting 3",
+    "genres":"Horror|Thriller",
+    "actors":"Helen Mirren|Emma Stone|Will Smith|Tilda Swinton",
+    "average_rating":9.9,
+    "release_year":2012,
+    "runtime":177.0
+  },
+  {
+    "movie_id":"movie_0093",
+    "title":"Dark Woods 3",
+    "genres":"Horror|Mystery",
+    "actors":"Denzel Washington|Christian Bale|Morgan Freeman",
+    "average_rating":8.0,
+    "release_year":2022,
+    "runtime":100.0
+  },
+  {
+    "movie_id":"movie_0094",
+    "title":"Blood Moon 3",
+    "genres":"Horror|Supernatural",
+    "actors":"Hugh Jackman|Robert Downey Jr.",
+    "average_rating":9.6,
+    "release_year":1990,
+    "runtime":117.0
+  },
+  {
+    "movie_id":"movie_0095",
+    "title":"Terror Night 3",
+    "genres":"Horror",
+    "actors":"Ryan Gosling|Hugh Jackman",
+    "average_rating":8.6,
+    "release_year":2011,
+    "runtime":173.0
+  },
+  {
+    "movie_id":"movie_0096",
+    "title":"Future World 3",
+    "genres":"Sci-Fi|Adventure",
+    "actors":"Meryl Streep|Kevin Costner",
+    "average_rating":9.9,
+    "release_year":2018,
+    "runtime":95.0
+  },
+  {
+    "movie_id":"movie_0097",
+    "title":"Space Odyssey 3",
+    "genres":"Sci-Fi|Drama",
+    "actors":"Matt Damon|Saoirse Ronan|Julianne Moore|Robert De Niro",
+    "average_rating":7.7,
+    "release_year":2001,
+    "runtime":94.0
+  },
+  {
+    "movie_id":"movie_0098",
+    "title":"Cyber Wars 3",
+    "genres":"Sci-Fi|Action",
+    "actors":"Hugh Jackman|Charlize Theron",
+    "average_rating":8.2,
+    "release_year":2017,
+    "runtime":174.0
+  },
+  {
+    "movie_id":"movie_0099",
+    "title":"Time Paradox 3",
+    "genres":"Sci-Fi|Thriller",
+    "actors":"Saoirse Ronan|Julianne Moore",
+    "average_rating":7.0,
+    "release_year":1991,
+    "runtime":142.0
+  },
+  {
+    "movie_id":"movie_0100",
+    "title":"Alien Contact 3",
+    "genres":"Sci-Fi",
+    "actors":"Natalie Portman|Tilda Swinton|Margot Robbie",
+    "average_rating":9.1,
+    "release_year":2017,
+    "runtime":140.0
+  },
+  {
+    "movie_id":"movie_0083",
+    "title":"The Funny Side 3",
+    "genres":"Comedy|Romance",
+    "actors":"Julianne Moore|Anthony Hopkins|Matt Damon",
+    "average_rating":9.8,
+    "release_year":2004,
+    "runtime":115.0
+  },
+  {
+    "movie_id":"movie_0009",
+    "title":"Whispers in Time",
+    "genres":"Drama|History",
+    "actors":"Charlize Theron|Tilda Swinton|Robert Downey Jr.|Natalie Portman",
+    "average_rating":7.4,
+    "release_year":2018,
+    "runtime":132.0
+  },
+  {
+    "movie_id":"movie_0007",
+    "title":"Broken Dreams",
+    "genres":"Drama",
+    "actors":"Meryl Streep|Margot Robbie",
+    "average_rating":9.6,
+    "release_year":2017,
+    "runtime":155.0
+  }
+]

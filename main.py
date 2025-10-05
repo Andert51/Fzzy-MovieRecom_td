@@ -107,6 +107,24 @@ class ModernFuzzyApp:
             if verbose:
                 self.ui.print_success(f"Loaded {len(self.movies_df)} movies")
             
+            # Load and merge custom movies if they exist
+            custom_file = self.data_dir / "custom_movies.csv"
+            if custom_file.exists():
+                try:
+                    custom_df = pd.read_csv(custom_file)
+                    if len(custom_df) > 0:
+                        # Fix column name mismatch: main_actors -> actors
+                        if 'main_actors' in custom_df.columns and 'actors' not in custom_df.columns:
+                            custom_df = custom_df.rename(columns={'main_actors': 'actors'})
+                        
+                        # Merge custom movies with generated dataset
+                        self.movies_df = pd.concat([self.movies_df, custom_df], ignore_index=True)
+                        if verbose:
+                            self.ui.print_success(f"Loaded {len(custom_df)} custom movies")
+                except Exception as e:
+                    if verbose:
+                        self.ui.print_warning(f"Could not load custom movies: {e}")
+            
             # Initialize engine
             self.engine = MovieRecommendationEngine(defuzzification_method='centroid')
             self.engine.initialize_system(self.movies_df)
@@ -153,6 +171,7 @@ class ModernFuzzyApp:
                 "View Recommendation History",          # NEW
                 "Generate Sample Dataset",              # NEW
                 "Manage Datasets",                      # NEW
+                "View Dataset Info",                    # NEW v2.1.2
                 "Exit"
             ]
             
@@ -181,6 +200,8 @@ class ModernFuzzyApp:
             elif choice == '11':
                 self._manage_datasets_ui()
             elif choice == '12':
+                self._view_dataset_info_ui()
+            elif choice == '13':
                 self._save_history()
                 self.ui.print_success("Thank you for using the system!")
                 break
@@ -195,6 +216,12 @@ class ModernFuzzyApp:
         # Get user preferences
         self.ui.print_info("Please provide your preferences:")
         print()
+        
+        # Show available genres
+        available_genres = self._get_available_genres()
+        if available_genres:
+            self.ui.print_info(f"Available genres: {', '.join(available_genres[:15])}...")
+            print()
         
         genres_input = self.ui.input_styled(
             "Preferred genres (comma-separated)", 
@@ -234,16 +261,20 @@ class ModernFuzzyApp:
             print()
             self.ui.print_section("RECOMMENDATION RESULTS")
             
-            headers = ["#", "Title", "Score", "Rating", "Genres"]
+            headers = ["#", "Title", "Score", "Rating", "Match%", "Fuzzy", "Genres"]
             rows = []
             
             for i, (movie, score, explanation) in enumerate(recommendations, 1):
+                match_score = movie.get('genre_match_score', 0)
+                fuzzy_label, visual_indicator = self._get_fuzzy_label(score)
                 rows.append([
                     str(i),
                     movie['title'][:30],
                     f"{score:.1f}/100",
                     f"{movie.get('average_rating', 0):.1f}/10",
-                    movie.get('genres', 'N/A')[:25]
+                    f"{match_score:.0f}%",
+                    visual_indicator,
+                    movie.get('genres', 'N/A')[:20]
                 ])
             
             self.ui.print_table(headers, rows, "Top Recommendations")
@@ -262,8 +293,10 @@ class ModernFuzzyApp:
                     movie_title=top_movie['title']
                 )
             
-            # Generate visualization
-            self.ui.print_info("Generating visualization...")
+            # Generate visualizations
+            self.ui.print_info("Generating visualizations...")
+            
+            # 1. Recommendations bar chart
             rec_dicts = []
             for movie, score, _ in recommendations:
                 rec_dicts.append({
@@ -273,12 +306,99 @@ class ModernFuzzyApp:
                 })
             
             viz_path = self.viz.plot_recommendations(rec_dicts, show=False)
-            self.ui.print_success(f"Visualization saved: {viz_path}")
+            self.ui.print_success(f"Recommendations chart: {viz_path}")
+            
+            # 2. Fuzzy membership functions with recommendation scores
+            membership_path = self._plot_membership_with_scores(recommendations)
+            if membership_path:
+                self.ui.print_success(f"Membership functions: {membership_path}")
             
         except Exception as e:
             self.ui.print_error(f"Error generating recommendations: {e}")
         
         self.ui.wait_for_user()
+    
+    def _plot_membership_with_scores(self, recommendations: List[Tuple]) -> Optional[str]:
+        """
+        Plot fuzzy membership functions with vertical lines showing where recommendations fall.
+        
+        Args:
+            recommendations: List of (movie_dict, score, explanation) tuples
+            
+        Returns:
+            Path to saved plot or None if error
+        """
+        try:
+            import matplotlib.pyplot as plt
+            import matplotlib.patches as mpatches
+            import skfuzzy as fuzz
+            
+            # Prepare data
+            scores = [score for _, score, _ in recommendations[:5]]  # Top 5
+            titles = [movie['title'][:15] for movie, _, _ in recommendations[:5]]
+            
+            # Universe of discourse
+            universe = np.arange(0, 101, 1)
+            
+            # Define membership functions (matching variables.py)
+            not_rec = fuzz.trimf(universe, [0, 0, 25])
+            possibly = fuzz.trimf(universe, [15, 40, 65])
+            recommended = fuzz.trimf(universe, [50, 75, 90])
+            highly = fuzz.trimf(universe, [80, 100, 100])
+            
+            # Create figure
+            fig, ax = plt.subplots(figsize=(14, 8))
+            
+            # Plot membership functions with distinct colors
+            ax.plot(universe, not_rec, 'r-', linewidth=2.5, label='Not Recommended', alpha=0.8)
+            ax.plot(universe, possibly, 'orange', linewidth=2.5, label='Possibly Recommended', alpha=0.8)
+            ax.plot(universe, recommended, 'gold', linewidth=2.5, label='Recommended', alpha=0.8)
+            ax.plot(universe, highly, 'g-', linewidth=2.5, label='Highly Recommended', alpha=0.8)
+            
+            # Plot vertical lines for each recommendation
+            colors_for_lines = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd']
+            for i, (score, title) in enumerate(zip(scores, titles)):
+                color = colors_for_lines[i % len(colors_for_lines)]
+                ax.axvline(x=score, color=color, linestyle='--', linewidth=2, alpha=0.7)
+                
+                # Add label at top
+                ax.text(score, 1.05, f'{title}\n({score:.1f})', 
+                       rotation=45, ha='left', va='bottom',
+                       fontsize=9, color=color, fontweight='bold')
+            
+            # Styling
+            ax.set_xlabel('Recommendation Score', fontsize=12, fontweight='bold')
+            ax.set_ylabel('Membership Degree', fontsize=12, fontweight='bold')
+            ax.set_title('Fuzzy Membership Functions - Recommendation Output Variable', 
+                        fontsize=14, fontweight='bold', pad=20)
+            ax.set_xlim([0, 100])
+            ax.set_ylim([0, 1.15])
+            ax.grid(True, alpha=0.3, linestyle=':', linewidth=0.5)
+            ax.legend(loc='upper left', fontsize=10, framealpha=0.9)
+            
+            # Add description box
+            description = (
+                "This chart shows the fuzzy membership functions for the recommendation output.\n"
+                "Vertical dashed lines indicate where each recommended movie falls on the scale.\n"
+                "Higher scores indicate stronger recommendations based on fuzzy inference."
+            )
+            props = dict(boxstyle='round', facecolor='wheat', alpha=0.3)
+            ax.text(0.5, -0.15, description, transform=ax.transAxes,
+                   fontsize=9, va='top', ha='center', bbox=props, wrap=True)
+            
+            plt.tight_layout()
+            
+            # Save
+            output_path = Path("visualizations") / "membership_functions.png"
+            output_path.parent.mkdir(exist_ok=True)
+            plt.savefig(output_path, dpi=300, bbox_inches='tight')
+            plt.close()
+            
+            return str(output_path)
+            
+        except Exception as e:
+            print(f"Error plotting membership functions: {e}")
+            return None
     
     def _visualize_system_ui(self):
         """Visualize fuzzy logic system."""
@@ -589,6 +709,70 @@ class ModernFuzzyApp:
                 return []
         return []
     
+    def _get_available_genres(self) -> List[str]:
+        """Get list of all genres available in current dataset."""
+        if self.movies_df is None:
+            return []
+        
+        genres_set = set()
+        for genres_str in self.movies_df['genres']:
+            if pd.notna(genres_str):
+                # Split by | or , or ;
+                for sep in ['|', ',', ';']:
+                    genres_str = genres_str.replace(sep, '|')
+                genres = [g.strip() for g in genres_str.split('|')]
+                genres_set.update(genres)
+        
+        return sorted(list(genres_set))
+    
+    def _get_fuzzy_label(self, score: float) -> Tuple[str, str]:
+        """
+        Get fuzzy linguistic label and visual indicator for a recommendation score.
+        
+        Args:
+            score: Recommendation score (0-100)
+            
+        Returns:
+            Tuple of (label, visual_indicator)
+            - label: Linguistic term
+            - visual_indicator: Stars/symbols for display
+        """
+        import skfuzzy as fuzz
+        
+        # Get membership degrees for all labels
+        universe = np.arange(0, 101, 1)
+        
+        # Define membership functions (same as in variables.py)
+        not_recommended = fuzz.trimf(universe, [0, 0, 25])
+        possibly_recommended = fuzz.trimf(universe, [15, 40, 65])
+        recommended = fuzz.trimf(universe, [50, 75, 90])
+        highly_recommended = fuzz.trimf(universe, [80, 100, 100])
+        
+        # Calculate membership degrees for current score
+        score_idx = min(int(score), 100)
+        degrees = {
+            'Not Recommended': not_recommended[score_idx],
+            'Possibly': possibly_recommended[score_idx],
+            'Recommended': recommended[score_idx],
+            'Highly Recommended': highly_recommended[score_idx]
+        }
+        
+        # Get label with maximum membership degree
+        max_label = max(degrees, key=degrees.get)
+        max_degree = degrees[max_label]
+        
+        # Assign visual indicators based on label
+        visual_map = {
+            'Highly Recommended': '★★★',
+            'Recommended': '★★☆',
+            'Possibly': '★☆☆',
+            'Not Recommended': '☆☆☆'
+        }
+        
+        visual = visual_map.get(max_label, '---')
+        
+        return max_label, visual
+    
     def _save_history(self):
         """Save recommendation history to JSON file."""
         try:
@@ -617,6 +801,14 @@ class ModernFuzzyApp:
         self.ui.print_section("ADD CUSTOM MOVIE")
         
         try:
+            # Show available genres
+            available_genres = self._get_available_genres()
+            if available_genres:
+                print()
+                self.ui.print_info(f"Available genres ({len(available_genres)}): {', '.join(available_genres[:20])}")
+                self.ui.print_info("Tip: Use existing genres for better recommendations")
+                print()
+            
             # Get movie details
             title = self.ui.input_styled("Movie Title", "The Matrix")
             
@@ -648,7 +840,7 @@ class ModernFuzzyApp:
                 'movie_id': f'custom_{int(time.time())}',
                 'title': title,
                 'genres': genres if genres else 'Unknown',
-                'main_actors': actors if actors else 'Unknown',
+                'actors': actors if actors else 'Unknown',  # Use 'actors' to match system standard
                 'director': director if director else 'Unknown',
                 'average_rating': rating,
                 'release_year': year,
@@ -680,6 +872,27 @@ class ModernFuzzyApp:
             self.ui.print_success(f"Movie '{title}' added successfully!")
             self.ui.print_info(f"Total movies in database: {len(self.movies_df)}")
             self.ui.print_info(f"Custom movies saved to: {custom_file}")
+            
+            # Debug: Verify integration
+            print()
+            self.ui.print_info("Verifying integration...")
+            custom_in_df = self.movies_df[self.movies_df['title'] == title]
+            if len(custom_in_df) > 0:
+                self.ui.print_success(f"✓ '{title}' found in memory DataFrame")
+            else:
+                self.ui.print_warning(f"✗ '{title}' NOT found in memory DataFrame")
+            
+            # Check engine database size
+            if hasattr(self.engine, 'data_preprocessor'):
+                engine_size = len(self.engine.data_preprocessor.movie_database)
+                self.ui.print_info(f"Engine database size: {engine_size} movies")
+                
+                # Check if custom movie is in engine
+                engine_has_movie = title in self.engine.data_preprocessor.movie_database['title'].values
+                if engine_has_movie:
+                    self.ui.print_success(f"✓ '{title}' found in engine database")
+                else:
+                    self.ui.print_warning(f"✗ '{title}' NOT found in engine database")
             
         except Exception as e:
             self.ui.print_error(f"Error adding movie: {e}")
@@ -1075,6 +1288,81 @@ class ModernFuzzyApp:
         }
         
         self.ui.print_key_value(info)
+    
+    def _view_dataset_info_ui(self):
+        """View comprehensive dataset information."""
+        self.ui.clear_screen()
+        self.ui.print_section("DATASET INFORMATION")
+        
+        # Basic stats
+        print()
+        self.ui.print_info("=== GENERAL STATISTICS ===")
+        print()
+        
+        total_movies = len(self.movies_df)
+        custom_movies = len(self.movies_df[self.movies_df.get('custom_added', False) == True]) if 'custom_added' in self.movies_df.columns else 0
+        generated_movies = total_movies - custom_movies
+        
+        basic_info = {
+            'Total Movies': total_movies,
+            'Generated Movies': generated_movies,
+            'Custom Movies': custom_movies,
+            'Memory Usage': f"{self.movies_df.memory_usage(deep=True).sum() / 1024:.1f} KB"
+        }
+        
+        self.ui.print_key_value(basic_info)
+        
+        # Rating stats
+        print()
+        self.ui.print_info("=== RATING STATISTICS ===")
+        print()
+        
+        rating_stats = {
+            'Average Rating': f"{self.movies_df['average_rating'].mean():.2f}",
+            'Min Rating': f"{self.movies_df['average_rating'].min():.2f}",
+            'Max Rating': f"{self.movies_df['average_rating'].max():.2f}",
+            'Std Deviation': f"{self.movies_df['average_rating'].std():.2f}"
+        }
+        
+        self.ui.print_key_value(rating_stats)
+        
+        # Available genres
+        print()
+        self.ui.print_info("=== AVAILABLE GENRES ===")
+        print()
+        
+        genres_list = self._get_available_genres()
+        print(f"Total genres: {len(genres_list)}")
+        print()
+        
+        # Display genres in columns
+        cols = 4
+        for i in range(0, len(genres_list), cols):
+            row_genres = genres_list[i:i+cols]
+            print("  ".join(f"{g:<20}" for g in row_genres))
+        
+        # Custom movies list
+        if custom_movies > 0:
+            print()
+            print()
+            self.ui.print_info(f"=== CUSTOM MOVIES ({custom_movies}) ===")
+            print()
+            
+            custom_df = self.movies_df[self.movies_df.get('custom_added', False) == True]
+            headers = ["Title", "Genres", "Rating", "Year"]
+            rows = []
+            
+            for _, movie in custom_df.head(10).iterrows():
+                rows.append([
+                    movie['title'][:30],
+                    movie.get('genres', 'N/A')[:25],
+                    f"{movie.get('average_rating', 0):.1f}",
+                    str(movie.get('release_year', 'N/A'))
+                ])
+            
+            self.ui.print_table(headers, rows, f"Custom Movies (showing {min(10, custom_movies)} of {custom_movies})")
+        
+        self.ui.wait_for_user()
     
     def run_batch_tests(self):
         """Run comprehensive batch testing."""

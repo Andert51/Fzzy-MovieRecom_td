@@ -1,0 +1,104 @@
+movie_id,title,genres,actors,average_rating,release_year,runtime
+movie_0001,The Last Guardian,Action|Adventure,Idris Elba|Natalie Portman|Scarlett Johansson,7.2,1990,153.0
+movie_0002,Shadow Strike,Action|Thriller,Frances McDormand|Hugh Jackman,6.7,2001,96.0
+movie_0003,Steel Warrior,Action|Sci-Fi,Will Smith|Helen Mirren,9.4,2020,106.0
+movie_0004,Night Hunter,Action|Crime,Tom Hanks|Julianne Moore|Jessica Chastain,6.6,2007,175.0
+movie_0005,Phoenix Rising,Action|Drama,Ryan Gosling|Saoirse Ronan|Anthony Hopkins|Jake Gyllenhaal,8.8,2009,136.0
+movie_0006,Silent Hearts,Drama|Romance,Will Smith|Tilda Swinton|Matt Damon|Mark Wahlberg,8.5,1996,176.0
+movie_0007,Broken Dreams,Drama,Meryl Streep|Margot Robbie,9.6,2017,155.0
+movie_0008,The Long Road,Drama|Biography,Tilda Swinton|Tom Hanks|Meryl Streep,9.7,2021,126.0
+movie_0009,Whispers in Time,Drama|History,Charlize Theron|Tilda Swinton|Robert Downey Jr.|Natalie Portman,7.4,2018,132.0
+movie_0010,Fading Light,Drama|Family,Samuel L. Jackson|Ryan Reynolds|Will Smith|Christian Bale,9.4,1991,174.0
+movie_0011,Laugh Out Loud,Comedy,Samuel L. Jackson|Robert De Niro|Matt Damon,9.1,2009,
+movie_0012,Crazy Adventures,Comedy|Adventure,Ryan Gosling|Charlize Theron,8.6,2015,95.0
+movie_0013,The Funny Side,Comedy|Romance,Charlize Theron|Brad Pitt|Robert De Niro|Anthony Hopkins,9.2,2010,94.0
+movie_0014,Mad House,Comedy|Family,Brie Larson|Lupita Nyong'o,7.8,2015,131.0
+movie_0015,Comedy Central,Comedy,Hugh Jackman|Morgan Freeman,9.7,2001,101.0
+movie_0016,Dark Secrets,Thriller|Mystery,Leonardo DiCaprio|Frances McDormand|Amy Adams,9.1,2013,114.0
+movie_0017,Edge of Tomorrow,Thriller|Sci-Fi,Saoirse Ronan|Helen Mirren,9.7,1997,166.0
+movie_0018,The Pursuit,Thriller|Crime,Cate Blanchett|Jessica Chastain,9.7,2004,136.0
+movie_0019,Hidden Truth,Thriller|Drama,Tilda Swinton|Frances McDormand|Jessica Chastain|Ryan Gosling,10.0,2011,175.0
+movie_0020,Final Hour,Thriller|Action,Brie Larson|Brad Pitt,10.0,2001,126.0
+movie_0021,Nightmare House,Horror,Morgan Freeman|Jessica Chastain|Viola Davis,9.5,2007,128.0
+movie_0022,The Haunting,Horror|Thriller,Charlize Theron|Idris Elba|Leonardo DiCaprio|Brie Larson,8.8,2015,90.0
+movie_0023,Dark Woods,Horror|Mystery,Robert Downey Jr.|Morgan Freeman,9.3,2009,133.0
+movie_0024,Blood Moon,Horror|Supernatural,Margot Robbie|Morgan Freeman|Reese Witherspoon,8.3,2019,102.0
+movie_0025,Terror Night,Horror,Tilda Swinton|Emma Stone,8.2,1994,150.0
+movie_0026,Future World,Sci-Fi|Adventure,Ryan Gosling|Tilda Swinton|Jennifer Lawrence|Anthony Hopkins,7.2,2003,97.0
+movie_0027,Space Odyssey,Sci-Fi|Drama,Frances McDormand|Lupita Nyong'o,6.8,1994,122.0
+movie_0028,Cyber Wars,Sci-Fi|Action,Charlize Theron|Jessica Chastain,9.4,2013,143.0
+movie_0029,Time Paradox,Sci-Fi|Thriller,Cate Blanchett|Natalie Portman|Sandra Bullock,7.8,1993,156.0
+movie_0030,Alien Contact,Sci-Fi,Brad Pitt|Tom Hanks|Meryl Streep|Mark Wahlberg,7.9,1994,113.0
+movie_0031,Love Story,Romance|Drama,Brie Larson|Tom Hanks|Julianne Moore,7.3,2003,134.0
+movie_0032,First Kiss,Romance|Comedy,Robert Downey Jr.|Julianne Moore,8.8,1996,120.0
+movie_0033,Eternal Love,Romance,Matt Damon|Denzel Washington,9.3,2021,108.0
+movie_0034,Summer Romance,Romance|Drama,Mark Wahlberg|Helen Mirren|Scarlett Johansson,9.0,2010,176.0
+movie_0035,Heart's Desire,Romance,Frances McDormand|Cate Blanchett|Helen Mirren,9.5,2013,155.0
+movie_0036,The Last Guardian 2,Action|Adventure,Leonardo DiCaprio|Natalie Portman,9.4,2020,108.0
+movie_0037,Shadow Strike 2,Action|Thriller,Mark Wahlberg|Christian Bale,6.9,2020,163.0
+movie_0038,Steel Warrior 2,Action|Sci-Fi,Denzel Washington|Samuel L. Jackson|Kevin Costner|Idris Elba,7.0,1994,132.0
+movie_0039,Night Hunter 2,Action|Crime,Hugh Jackman|Robert Downey Jr.|Saoirse Ronan,9.4,2014,94.0
+movie_0040,Phoenix Rising 2,Action|Drama,Robert Downey Jr.|Samuel L. Jackson|Natalie Portman,7.2,1990,140.0
+movie_0041,Silent Hearts 2,Drama|Romance,Margot Robbie|Samuel L. Jackson|Cate Blanchett|Ryan Reynolds,6.8,1996,133.0
+movie_0042,Broken Dreams 2,Drama,Leonardo DiCaprio|Will Smith|Tom Hanks,8.9,2023,116.0
+movie_0043,The Long Road 2,Drama|Biography,Anthony Hopkins|Mark Wahlberg|Viola Davis|Robert Downey Jr.,8.7,2019,149.0
+movie_0044,Whispers in Time 2,Drama|History,Frances McDormand|Leonardo DiCaprio|Ryan Reynolds,9.7,1994,150.0
+movie_0045,Fading Light 2,Drama|Family,Idris Elba|Tilda Swinton,9.5,1992,157.0
+movie_0046,Laugh Out Loud 2,Comedy,Lupita Nyong'o|Reese Witherspoon|Jake Gyllenhaal,8.2,2015,160.0
+movie_0047,Crazy Adventures 2,Comedy|Adventure,Natalie Portman|Will Smith|Christian Bale|Saoirse Ronan,9.8,2015,114.0
+movie_0048,The Funny Side 2,Comedy|Romance,Margot Robbie|Julianne Moore,9.2,2005,159.0
+movie_0049,Mad House 2,Comedy|Family,Morgan Freeman|Amy Adams|Jessica Chastain|Anthony Hopkins,9.9,2005,143.0
+movie_0050,Comedy Central 2,Comedy,Margot Robbie|Charlize Theron|Kevin Costner|Tom Hanks,7.6,2022,152.0
+movie_0051,Dark Secrets 2,Thriller|Mystery,Robert De Niro|Viola Davis,7.7,1992,128.0
+movie_0052,Edge of Tomorrow 2,Thriller|Sci-Fi,Robert De Niro|Lupita Nyong'o|Christian Bale|Margot Robbie,8.7,2000,122.0
+movie_0053,The Pursuit 2,Thriller|Crime,Robert Downey Jr.|Samuel L. Jackson,7.7,1998,102.0
+movie_0054,Hidden Truth 2,Thriller|Drama,Tom Hanks|Jessica Chastain,9.2,2023,177.0
+movie_0055,Final Hour 2,Thriller|Action,Anthony Hopkins|Mark Wahlberg|Ryan Reynolds|Robert Downey Jr.,8.2,2014,118.0
+movie_0056,Nightmare House 2,Horror,Mark Wahlberg|Helen Mirren|Chris Evans|Charlize Theron,8.7,2014,154.0
+movie_0057,The Haunting 2,Horror|Thriller,Jake Gyllenhaal|Margot Robbie|Chris Evans|Sandra Bullock,9.2,2002,162.0
+movie_0058,Dark Woods 2,Horror|Mystery,Cate Blanchett|Jessica Chastain|Idris Elba|Meryl Streep,9.3,2013,116.0
+movie_0059,Blood Moon 2,Horror|Supernatural,Robert Downey Jr.|Robert De Niro|Scarlett Johansson|Sandra Bullock,8.6,1997,115.0
+movie_0060,Terror Night 2,Horror,Jake Gyllenhaal|Margot Robbie|Helen Mirren,9.9,2003,134.0
+movie_0061,Future World 2,Sci-Fi|Adventure,Viola Davis|Natalie Portman|Sandra Bullock|Ryan Gosling,8.7,2018,115.0
+movie_0062,Space Odyssey 2,Sci-Fi|Drama,Morgan Freeman|Will Smith,8.4,2022,97.0
+movie_0063,Cyber Wars 2,Sci-Fi|Action,Scarlett Johansson|Amy Adams|Frances McDormand,6.5,2009,97.0
+movie_0064,Time Paradox 2,Sci-Fi|Thriller,Tilda Swinton|Denzel Washington|Scarlett Johansson|Robert De Niro,7.6,2001,178.0
+movie_0065,Alien Contact 2,Sci-Fi,Hugh Jackman|Reese Witherspoon,9.7,1991,169.0
+movie_0066,Love Story 2,Romance|Drama,Margot Robbie|Viola Davis|Amy Adams,7.6,1992,150.0
+movie_0067,First Kiss 2,Romance|Comedy,Julianne Moore|Morgan Freeman|Reese Witherspoon|Idris Elba,7.8,2021,160.0
+movie_0068,Eternal Love 2,Romance,Leonardo DiCaprio|Viola Davis|Margot Robbie|Matt Damon,9.6,2002,102.0
+movie_0069,Summer Romance 2,Romance|Drama,Scarlett Johansson|Matt Damon,9.1,1992,165.0
+movie_0070,Heart's Desire 2,Romance,Amy Adams|Matt Damon,9.0,2010,103.0
+movie_0071,The Last Guardian 3,Action|Adventure,Reese Witherspoon|Tom Hanks|Natalie Portman,9.9,2017,118.0
+movie_0072,Shadow Strike 3,Action|Thriller,Cate Blanchett|Jessica Chastain,9.7,2023,150.0
+movie_0073,Steel Warrior 3,Action|Sci-Fi,Robert De Niro|Idris Elba|Christian Bale,9.9,2018,
+movie_0074,Night Hunter 3,Action|Crime,Helen Mirren|Meryl Streep|Kevin Costner|Cate Blanchett,9.7,1991,117.0
+movie_0075,Phoenix Rising 3,Action|Drama,Jake Gyllenhaal|Tom Hanks|Lupita Nyong'o,8.7,2014,93.0
+movie_0076,Silent Hearts 3,Drama|Romance,Saoirse Ronan|Cate Blanchett|Jake Gyllenhaal|Jennifer Lawrence,8.0,2003,150.0
+movie_0077,Broken Dreams 3,Drama,Tilda Swinton|Scarlett Johansson,8.5,2019,154.0
+movie_0078,The Long Road 3,Drama|Biography,Amy Adams|Chris Evans|Will Smith,6.4,2022,165.0
+movie_0079,Whispers in Time 3,Drama|History,Brad Pitt|Ryan Gosling|Will Smith|Frances McDormand,9.1,1991,138.0
+movie_0080,Fading Light 3,Drama|Family,Denzel Washington|Morgan Freeman|Leonardo DiCaprio,9.9,2021,163.0
+movie_0081,Laugh Out Loud 3,Comedy,Saoirse Ronan|Ryan Reynolds,7.9,1998,100.0
+movie_0082,Crazy Adventures 3,Comedy|Adventure,Mark Wahlberg|Matt Damon|Robert Downey Jr.|Chris Evans,8.1,2016,148.0
+movie_0083,The Funny Side 3,Comedy|Romance,Julianne Moore|Anthony Hopkins|Matt Damon,9.8,2004,115.0
+movie_0084,Mad House 3,Comedy|Family,Matt Damon|Viola Davis|Chris Evans,7.7,2000,106.0
+movie_0085,Comedy Central 3,Comedy,Sandra Bullock|Viola Davis,7.8,1993,137.0
+movie_0086,Dark Secrets 3,Thriller|Mystery,Anthony Hopkins|Matt Damon|Kevin Costner|Emma Stone,8.7,2008,171.0
+movie_0087,Edge of Tomorrow 3,Thriller|Sci-Fi,Brie Larson|Meryl Streep,7.1,1998,100.0
+movie_0088,The Pursuit 3,Thriller|Crime,Meryl Streep|Ryan Reynolds|Sandra Bullock|Tom Hanks,8.6,1992,116.0
+movie_0089,Hidden Truth 3,Thriller|Drama,Scarlett Johansson|Mark Wahlberg|Robert Downey Jr.,9.3,2019,142.0
+movie_0090,Final Hour 3,Thriller|Action,Charlize Theron|Julianne Moore,8.2,2016,117.0
+movie_0091,Nightmare House 3,Horror,Hugh Jackman|Cate Blanchett|Brad Pitt|Idris Elba,7.0,2022,144.0
+movie_0092,The Haunting 3,Horror|Thriller,Helen Mirren|Emma Stone|Will Smith|Tilda Swinton,9.9,2012,177.0
+movie_0093,Dark Woods 3,Horror|Mystery,Denzel Washington|Christian Bale|Morgan Freeman,8.0,2022,100.0
+movie_0094,Blood Moon 3,Horror|Supernatural,Hugh Jackman|Robert Downey Jr.,9.6,1990,117.0
+movie_0095,Terror Night 3,Horror,Ryan Gosling|Hugh Jackman,8.6,2011,173.0
+movie_0096,Future World 3,Sci-Fi|Adventure,Meryl Streep|Kevin Costner,9.9,2018,95.0
+movie_0097,Space Odyssey 3,Sci-Fi|Drama,Matt Damon|Saoirse Ronan|Julianne Moore|Robert De Niro,7.7,2001,94.0
+movie_0098,Cyber Wars 3,Sci-Fi|Action,Hugh Jackman|Charlize Theron,8.2,2017,174.0
+movie_0099,Time Paradox 3,Sci-Fi|Thriller,Saoirse Ronan|Julianne Moore,7.0,1991,142.0
+movie_0100,Alien Contact 3,Sci-Fi,Natalie Portman|Tilda Swinton|Margot Robbie,9.1,2017,140.0
+movie_0083,The Funny Side 3,Comedy|Romance,Julianne Moore|Anthony Hopkins|Matt Damon,9.8,2004,115.0
+movie_0009,Whispers in Time,Drama|History,Charlize Theron|Tilda Swinton|Robert Downey Jr.|Natalie Portman,7.4,2018,132.0
+movie_0007,Broken Dreams,Drama,Meryl Streep|Margot Robbie,9.6,2017,155.0

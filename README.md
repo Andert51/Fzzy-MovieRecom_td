@@ -60,8 +60,8 @@ A partir de estos factores, el sistema genera una **puntuación de recomendació
 - **Curso**: Soft Computing - Fuzzy Logic Applications
 - **Institución**: Universidad de Guanajuato
 - **Estudiante**: Andrés Torres Ceja
-- **ID**: 148252
-- **Versión**: 1.0.0
+- **ID**: 148252CF
+- **Versión**: 2.2.0 (Última actualización: Octubre 2025)
 
 ---
 
@@ -75,10 +75,43 @@ A partir de estos factores, el sistema genera una **puntuación de recomendació
 -  **Múltiples métodos de defuzzificación** (centroide, bisector, MOM, SOM, LOM)
 -  **Evaluación de confianza** para cada recomendación
 
+###  Interfaz Moderna (v2.0+)
+
+-  **UI limpia y profesional** sin emojis, colores consistentes
+-  **Visualizaciones de alta calidad** (PNG de 300 DPI)
+-  **Tablas formateadas** con bordes ASCII art
+-  **Secciones claramente definidas** con separadores visuales
+-  **Sistema de colores ANSI** para mejor legibilidad
+-  **Indicadores visuales fuzzy** (★★★, ★★☆, ★☆☆, ☆☆☆)
+
+###  Gestión de Películas Personalizadas (v2.1.2+)
+
+-  **Agregar películas custom** con validación completa
+-  **Persistencia automática** en `data/custom_movies.csv`
+-  **Carga automática** al inicializar el sistema
+-  **Integración transparente** con dataset generado
+-  **Visualización de géneros disponibles** para evitar errores
+-  **Verificación de integración** con debug info
+-  **Opción "View Dataset Info"** con estadísticas completas
+
+###  Visualización de Membresía Fuzzy (v2.2.0+)
+
+-  **Gráficas de funciones de membresía** con líneas de corte
+-  **Indicadores visuales en tabla** (★★★ Highly Recommended)
+-  **Dos archivos PNG generados**:
+  - `recommendations.png` - Gráfica de barras tradicional
+  - `membership_functions.png` - Funciones difusas con scores
+-  **Colores distintivos** para cada categoría:
+  - Verde: Highly Recommended (80-100)
+  - Amarillo: Recommended (50-90)
+  - Naranja: Possibly Recommended (15-65)
+  - Rojo: Not Recommended (0-25)
+-  **Etiquetas claras** con nombre de película + score
+
 ###  Modos de Operación
 
 1. **Modo Demo**: Demostración completa del sistema
-2. **Modo Interactivo**: Interfaz amigable para el usuario
+2. **Modo Interactivo**: Interfaz amigable con 13 opciones
 3. **Modo de Pruebas**: Testing exhaustivo del sistema
 4. **Generación de Datos**: Creación de datasets de muestra
 
@@ -89,6 +122,8 @@ A partir de estos factores, el sistema genera una **puntuación de recomendació
 -  **Métricas de rendimiento** en tiempo real
 -  **Explicaciones detalladas** de por qué se recomienda cada película
 -  **Visualización de funciones de membresía** y resultados
+-  **Historial de recomendaciones** persistente
+-  **Estadísticas del dataset** (total, custom, generated, ratings)
 
 ###  Procesamiento de Datos
 
@@ -97,6 +132,8 @@ A partir de estos factores, el sistema genera una **puntuación de recomendació
 -  **Limpieza automática de datos**
 -  **Generación de datasets sintéticos** para pruebas
 -  **Sistema de caché** para optimización
+-  **Merge automático** de películas custom con dataset generado
+-  **Normalización de columnas** (main_actors → actors)
 
 ---
 
@@ -219,27 +256,92 @@ El sistema ofrece múltiples modos de operación para diferentes casos de uso:
 ### Modo Interactivo (Recomendado para comenzar)
 
 ```bash
-python main.py --interactive
+python main.py
 ```
 
-Este modo proporciona un menú interactivo con las siguientes opciones:
+Este modo proporciona un menú interactivo moderno con las siguientes opciones:
 
 ```
- Interactive Menu / Menú Interactivo:
-1. Generate recommendations / Generar recomendaciones
-2. Analyze user preferences / Analizar preferencias de usuario
-3. View system statistics / Ver estadísticas del sistema
-4. Explore sample movies / Explorar películas de muestra
-5. Test fuzzy inference / Probar inferencia difusa
-6. Exit / Salir
++==============================================================================+
+|                  FUZZY LOGIC MOVIE RECOMMENDATION SYSTEM                   |
+|                          Andrés Torres Ceja - 148252CF                     |
+|                         Version 2.2.0 - October 2025                       |
++==============================================================================+
+
+MAIN MENU:
+
+1.  Generate Movie Recommendations        ← Generar recomendaciones
+2.  Visualize Fuzzy Logic System         ← Ver funciones de membresía
+3.  Analyze User Preferences             ← Analizar preferencias
+4.  View System Dashboard                ← Dashboard con estadísticas
+5.  Explore Movie Database               ← Explorar películas
+6.  Test Fuzzy Inference                 ← Probar inferencia
+7.  Add Custom Movie                     ← ★ Agregar película custom
+8.  Export Current Dataset               ← Exportar dataset
+9.  View Recommendation History          ← Ver historial
+10. Generate Sample Dataset              ← Generar datos sintéticos
+11. Manage Datasets                      ← Gestionar datasets
+12. View Dataset Info                    ← ★ Info del dataset completo
+13. Exit                                 ← Salir
 ```
 
-**Características del modo interactivo:**
--  Genera recomendaciones personalizadas paso a paso
--  Analiza preferencias de usuario con datos de entrada personalizados
--  Muestra estadísticas del sistema en tiempo real
--  Explora el dataset de películas disponibles
--  Prueba el sistema de inferencia difusa con valores personalizados
+**Nuevas Características v2.0+:**
+
+**Opción 1 - Generate Recommendations:**
+-  Muestra géneros disponibles antes de ingresar preferencias
+-  Tabla con columna "Fuzzy" con indicadores visuales (★★★, ★★☆, ★☆☆, ☆☆☆)
+-  Genera 2 gráficas:
+  * `recommendations.png` - Gráfica de barras tradicional
+  * `membership_functions.png` - Funciones de membresía con líneas de corte
+
+**Opción 7 - Add Custom Movie (v2.1.2):**
+-  Agregar películas personalizadas al sistema
+-  Muestra primeros 20 géneros disponibles
+-  Tip: "Use existing genres for better recommendations"
+-  Validación completa de datos
+-  Persistencia en `data/custom_movies.csv`
+-  Debug info: Verifica integración exitosa
+
+**Opción 12 - View Dataset Info (v2.1.2):**
+-  Estadísticas generales (total, custom, generated, memoria)
+-  Estadísticas de ratings (avg, min, max, std dev)
+-  Lista completa de géneros disponibles (en 4 columnas)
+-  Tabla de películas custom (hasta 10)
+
+### Ejemplo de Salida - Generate Recommendations (v2.2.0)
+
+```
++-- RECOMMENDATION RESULTS ------------------------------------------------+
+
+Available genres: Action, Adventure, Comedy, Crime, Drama, Horror, Romance,
+                  Sci-Fi, Thriller...
+
+-> Preferred genres: Thriller
+-> Minimum rating: 9.0
+-> Number of recommendations: 5
+
+i Processing fuzzy inference...
+
++-- Top Recommendations ------------------------------------------------+
+| # | Title              | Score   | Rating  | Match% | Fuzzy | Genres  |
++---+--------------------+---------+---------+--------+-------+---------+
+| 1 | Nina               | 93.6/100| 9.8/10  | 100%   | ★★★   |Thriller |
+| 2 | Shadow Strike      | 91.9/100| 9.9/10  | 100%   | ★★★   |Action...|
+| 3 | Dark Secrets       | 75.1/100| 9.7/10  | 100%   | ★★☆   |Thriller |
+| 4 | Hidden Truth       | 75.1/100| 9.5/10  | 100%   | ★★☆   |Thriller |
+| 5 | Final Hour         | 78.5/100| 8.6/10  | 100%   | ★★☆   |Thriller |
++-----------------------------------------------------------------------+
+
+i Generating visualizations...
+✓ Recommendations chart: visualizations\recommendations.png
+✓ Membership functions: visualizations\membership_functions.png
+```
+
+**Indicadores Fuzzy:**
+- ★★★ = Highly Recommended (80-100)
+- ★★☆ = Recommended (50-90)
+- ★☆☆ = Possibly Recommended (15-65)
+- ☆☆☆ = Not Recommended (0-25)
 
 ### Modo Demo
 
@@ -251,7 +353,7 @@ Ejecuta una demostración completa del sistema que incluye:
 
 -  **Arquitectura del sistema**: Visión general de componentes
 -  **Componentes de lógica difusa**: Variables y funciones de membresía
--  **Generación de recomendaciones**: Ejemplos prácticos
+-  **Generación de recomendaciones**: Ejemplos prácticos con Thriller
 -  **Análisis de rendimiento**: Métricas y tiempos de ejecución
 -  **Evaluación de calidad de datos**: Análisis del dataset
 
@@ -259,24 +361,6 @@ Ejecuta una demostración completa del sistema que incluye:
 - Presentaciones académicas
 - Demostraciones a usuarios finales
 - Comprensión rápida del sistema
-
-### Modo de Pruebas por Lote
-
-```bash
-python main.py --batch-test
-```
-
-Ejecuta pruebas exhaustivas del sistema:
-
--  **Benchmarking de rendimiento**: Tiempos de ejecución
--  **Validación de precisión**: Calidad de recomendaciones
--  **Pruebas de robustez**: Manejo de casos extremos
--  **Análisis de escalabilidad**: Rendimiento con grandes datasets
-
-**Perfecto para:**
-- Desarrollo y debugging
-- Validación de cambios
-- Análisis de rendimiento
 
 ### Generación de Datos
 
@@ -296,13 +380,28 @@ Genera un dataset sintético de películas con características realistas:
 - Experimentación con diferentes tamaños de datos
 - Demos sin conexión a internet
 
-### Modo Predeterminado
+### Testing y Validación
 
+**Test de películas custom:**
 ```bash
-python main.py
+python test_nina.py
 ```
 
-Sin argumentos, el sistema inicia en **modo interactivo** automáticamente.
+Valida que las películas custom se integren correctamente y aparezcan en recomendaciones.
+
+**Test de visualizaciones fuzzy:**
+```bash
+python test_fuzzy_visualization.py
+```
+
+Prueba el cálculo de etiquetas fuzzy y generación de gráficas de membresía.
+
+**Test de integración completa:**
+```bash
+python test_final_integration.py
+```
+
+Valida todas las features de v2.2.0 funcionando juntas.
 
 ---
 
@@ -570,7 +669,7 @@ Otros métodos disponibles: Bisector, MOM, SOM, LOM
 ```
 E1_Fzz_AndresTorresCeja_148252CF/
 │
-├── 📄 main.py                      # Aplicación principal
+├── 📄 main.py                      # Aplicación principal (1630+ líneas, v2.2.0)
 ├── 📄 requirements.txt             # Dependencias del proyecto
 ├── 📄 README.md                    # Este archivo
 │
@@ -594,13 +693,38 @@ E1_Fzz_AndresTorresCeja_148252CF/
 │   │   └── 📄 data_loader.py      # Cargador de datos
 │   │
 │   └── 📂 data/                   # Datos
-│       └── 📄 movies.csv          # Dataset de películas
+│       ├── 📄 movies.csv          # Dataset de películas principal
+│       └── 📄 custom_movies.csv   # Películas agregadas por usuario (v2.1.2)
 │
-└── 📂 docs/                       # Documentación
-    ├── 📄 ARCHITECTURE.md         # Documentación de arquitectura
-    ├── 📄 IMRAD.md                # Documentación científica
-    └── 📄 FzzyRecomdt.docx        # Documentación completa
+├── 📂 visualizations/             # Visualizaciones generadas (v2.0+)
+│   ├── 📄 recommendations.png     # Gráfica de barras de recomendaciones
+│   └── � membership_functions.png # Gráfica de funciones fuzzy (v2.2.0)
+│
+├── �📂 docs/                       # Documentación
+│   ├── 📄 ARCHITECTURE.md         # Documentación de arquitectura
+│   ├── 📄 IMRAD.md                # Documentación científica
+│   ├── 📄 FzzyRecomdt.docx        # Documentación completa
+│   ├── 📄 README_FEATURES_v2.1.md # Features v2.1 (4500+ líneas)
+│   ├── 📄 FIXES_v2.1.2.md         # Fix películas personalizadas (2800+ líneas)
+│   └── 📄 FEATURES_v2.2.0.md      # Visualizaciones fuzzy (3500+ líneas)
+│
+└── 📂 tests/                      # Scripts de testing (v2.1.2+)
+    ├── 📄 test_nina.py            # Test de películas personalizadas
+    ├── 📄 test_fuzzy_visualization.py  # Test de visualizaciones fuzzy
+    └── 📄 test_final_integration.py    # Test de integración completa
 ```
+
+### 📋 Archivos Clave
+
+| Archivo | Líneas | Descripción | Versión |
+|---------|--------|-------------|---------|
+| `main.py` | 1630+ | Aplicación principal con UI interactiva | v2.2.0 |
+| `fuzzy_model.py` | 350+ | Sistema de inferencia Mamdani | v1.0 |
+| `recommender_engine.py` | 280+ | Motor de recomendaciones | v2.1.2 |
+| `preprocessor.py` | 200+ | Preprocesamiento de datos | v2.1.2 |
+| `FEATURES_v2.2.0.md` | 3500+ | Documentación visualizaciones | v2.2.0 |
+| `FIXES_v2.1.2.md` | 2800+ | Documentación fix películas | v2.1.2 |
+| `README_FEATURES_v2.1.md` | 4500+ | Documentación features v2.1 | v2.1 |
 
 ---
 
@@ -696,39 +820,129 @@ for case in test_cases:
     print(f"  Confianza: {result.confidence_level:.2%}")
 ```
 
-### Ejemplo 4: Visualización de Funciones de Membresía
+### Ejemplo 5:  Agregar Películas Personalizadas (v2.1.2+)
 
 ```python
-from src.fuzzy_logic.membership_func import MembershipFunctions
+# Ejecutar desde terminal
+python main.py
 
-# Crear instancia
-mf = MembershipFunctions()
+# Seleccionar Opción 7 - Add Custom Movie
+# Ingresar datos:
+# Title: Nina
+# Year: 2024
+# Genres: Thriller
+# Director: Andrés Torres
+# Main Actors: Andrea Smith, Laura Wilson
+# Average Rating: 9.8
+# Description: Psychological thriller about isolation
 
-# Visualizar todas las funciones de membresía
-mf.visualize_all_variables()
-
-# Visualizar una variable específica
-mf.plot_membership_functions('user_rating')
+# Ver recomendaciones
+# Seleccionar Opción 1 - Generate Recommendations
+# Seleccionar perfil: Thriller Fan
+# Nina aparecerá como #1 recomendación
 ```
 
-### Ejemplo 5: Modo Interactivo desde Código
+**Salida esperada:**
+```
++-- Top Recommendations ------------------------------------------------------+
+| # | Title               | Score   | Rating | Match% | Fuzzy | Genres        |
++-----------------------------------------------------------------------------+
+| 1 | Nina                | 93.6/100| 9.8/10 | 100%   | ★★★   | Thriller      |
+| 2 | The Silence         | 92.3/100| 9.5/10 | 98%    | ★★★   | Thriller      |
+| 3 | Dark Waters         | 89.7/100| 9.2/10 | 95%    | ★★★   | Thriller,Drama|
++-----------------------------------------------------------------------------+
+
+ Files generated:
+  visualizations/recommendations.png
+  visualizations/membership_functions.png
+```
+
+### Ejemplo 6:  Visualizaciones Fuzzy (v2.2.0+)
 
 ```python
-from main import FuzzyMovieRecommendationApp
+# Las visualizaciones se generan automáticamente al hacer recomendaciones
 
-# Crear aplicación
-app = FuzzyMovieRecommendationApp()
+# 1. recommendations.png
+# - Gráfica de barras con top N películas
+# - Colores según categoría fuzzy
+# - Ordenadas por score
 
-# Inicializar sistema
-app.initialize_system(num_movies=100)
+# 2. membership_functions.png
+# - 4 funciones de membresía (Not, Possibly, Recommended, Highly)
+# - Líneas verticales en cada score de película
+# - Etiquetas con título y score
+# - Código de colores:
+#   • Rojo: Not Recommended (0-25)
+#   • Naranja: Possibly Recommended (15-65)
+#   • Oro: Recommended (50-90)
+#   • Verde: Highly Recommended (80-100)
+```
 
-# Ejecutar modo demo
-app.run_demo_mode()
+**Interpretación de Indicadores:**
+
+| Símbolo | Categoría | Rango Score | Significado |
+|---------|-----------|-------------|-------------|
+| ★★★ | Highly Recommended | 80-100 | Excelente match, altamente recomendada |
+| ★★☆ | Recommended | 50-90 | Buena opción, probablemente te gustará |
+| ★☆☆ | Possibly Recommended | 15-65 | Puede interesarte, valor medio |
+| ☆☆☆ | Not Recommended | 0-25 | No coincide con tus preferencias |
+
+### Ejemplo 7: Modo Batch para Múltiples Usuarios
+
+```python
+# Ejecutar desde terminal
+python main.py
+
+# Seleccionar Opción 5 - Batch Mode
+# Ingresar perfiles separados por comas: Action Fan, Drama Fan, Comedy Fan
+# El sistema genera recomendaciones para cada uno
+
+# Resultados se exportan a:
+# - results/batch_recommendations.csv
+# - results/batch_recommendations.json
 ```
 
 ---
 
 ##  Documentación Técnica
+
+### 📚 Documentación Completa por Versión
+
+El proyecto cuenta con documentación exhaustiva de más de **12,000 líneas** distribuida en múltiples documentos especializados:
+
+| Documento | Líneas | Contenido | Versión |
+|-----------|--------|-----------|---------|
+| **README.md** | 1100+ | Guía principal del proyecto | Actual |
+| **FEATURES_v2.2.0.md** | 3500+ | Visualizaciones fuzzy avanzadas | v2.2.0 |
+| **FIXES_v2.1.2.md** | 2800+ | Fix de películas personalizadas | v2.1.2 |
+| **README_FEATURES_v2.1.md** | 4500+ | Características v2.1 | v2.1 |
+| **ARCHITECTURE.md** | 800+ | Arquitectura del sistema | v1.0+ |
+| **IMRAD.md** | 500+ | Documentación científica | v1.0+ |
+
+#### 📄 **FEATURES_v2.2.0.md** - Visualizaciones Fuzzy
+Documentación técnica completa de las nuevas características de visualización:
+- **Sección 1**: Sistema de indicadores visuales (★★★)
+- **Sección 2**: Cálculo de etiquetas lingüísticas
+- **Sección 3**: Generación de gráficas de membresía
+- **Sección 4**: Análisis técnico de implementación
+- **Sección 5**: Ejemplos de uso y casos de prueba
+- **Sección 6**: Personalización y configuración
+- **Apéndices**: Código completo y troubleshooting
+
+#### 📄 **FIXES_v2.1.2.md** - Integración de Películas Personalizadas
+Documentación del fix crítico de películas custom:
+- Análisis de root cause
+- Solución implementada
+- Validación exhaustiva
+- Casos de prueba
+- Prevención de regresiones
+
+#### 📄 **README_FEATURES_v2.1.md** - Features v2.1
+Características avanzadas de la versión 2.1:
+- Sistema de perfiles de usuario
+- Modo batch
+- Exportación de resultados
+- Interfaz Rich UI
 
 ### Métodos de Defuzzificación
 
@@ -760,14 +974,17 @@ app.run_demo_mode()
 | Evaluación de reglas | O(r) | r = número de reglas |
 | Agregación | O(r) | Operación paralela posible |
 | Defuzzificación | O(p) | p = puntos de universo |
-| **Total** | **O(n + r + p)** | Lineal en todos los parámetros |
+| Visualización (v2.2.0) | O(m) | m = número de recomendaciones |
+| **Total** | **O(n + r + p + m)** | Lineal en todos los parámetros |
 
 ### Precisión y Rendimiento
 
 - **Tiempo de inferencia**: < 10ms por recomendación
+- **Tiempo de visualización**: < 500ms para ambas PNG (v2.2.0)
 - **Escalabilidad**: Hasta 10,000 películas sin degradación
 - **Precisión**: 90%+ en casos de prueba
 - **Uso de memoria**: ~50MB con dataset completo
+- **Películas personalizadas**: Integración automática (v2.1.2)
 
 ---
 
@@ -881,16 +1098,155 @@ con fines académicos y educativos.
 ---
 
 
+##  Novedades v2.2.0 - Visualizaciones Fuzzy Avanzadas 
+
+### ✨ Nuevas Características (Diciembre 2024)
+
+####  **v2.2.0 - Fuzzy Membership Visualizations**
+- **Indicadores Visuales en Tabla**: Sistema de estrellas para clasificación de recomendaciones
+  - ★★★ **Highly Recommended** (score 80-100)
+  - ★★☆ **Recommended** (score 50-90)
+  - ★☆☆ **Possibly Recommended** (score 15-65)
+  - ☆☆☆ **Not Recommended** (score 0-25)
+
+- **Gráficas de Funciones de Membresía**: Visualización automática de pertenencia
+  - Genera `membership_functions.png` con cada recomendación
+  - Muestra las 4 funciones: Not Recommended, Possibly, Recommended, Highly
+  - Líneas verticales indican la posición de cada película en el espacio fuzzy
+  - Etiquetas con título y score para fácil interpretación
+
+####  **v2.1.2 - Custom Movies Integration Fix**
+- Corrección de bug en integración de películas personalizadas
+- Las películas agregadas por el usuario ahora aparecen correctamente en recomendaciones
+- Normalización de columnas (`main_actors` → `actors`) para compatibilidad
+- Persistencia mejorada en `custom_movies.csv`
+
+####  **v2.0+ - Modern Interface**
+- Menú interactivo expandido a 13 opciones
+- Interfaz con Rich para mejor visualización
+- Tablas formateadas con colores y símbolos
+- Modo batch para procesamiento múltiple
+- Export de resultados a CSV/JSON
+
+### 📊 Documentación Extendida
+
+Consulta la documentación técnica completa de las nuevas features:
+- [`docs/FEATURES_v2.2.0.md`](docs/FEATURES_v2.2.0.md) - Visualizaciones fuzzy (3500+ líneas)
+- [`docs/FIXES_v2.1.2.md`](docs/FIXES_v2.1.2.md) - Fix de películas personalizadas (2800+ líneas)
+- [`docs/README_FEATURES_v2.1.md`](docs/README_FEATURES_v2.1.md) - Features v2.1
+
+### 🧪 Scripts de Validación
+
+Prueba las nuevas características con los scripts incluidos:
+```bash
+# Test de películas personalizadas
+python test_nina.py
+
+# Test de visualizaciones fuzzy
+python test_fuzzy_visualization.py
+
+# Test de integración completa
+python test_final_integration.py
+```
+
+---
+
+##  Changelog - Historial de Versiones
+
+### 🎉 v2.2.0 (Octubre 2025) - Fuzzy Membership Visualizations
+**Nuevas características:**
+- ✨ Sistema de indicadores visuales con estrellas (★★★, ★★☆, ★☆☆, ☆☆☆)
+- 📊 Gráfica de funciones de membresía (`membership_functions.png`)
+- 🎨 Líneas verticales en gráfica mostrando posición de cada película
+- 🏷️ Etiquetas lingüísticas fuzzy calculadas automáticamente
+- 📈 Doble visualización: recomendaciones + membresía
+- 📝 Documentación técnica completa (FEATURES_v2.2.0.md - 3500+ líneas)
+
+**Mejoras:**
+- Columna "Fuzzy" agregada a tabla de resultados
+- Método `_get_fuzzy_label()` para cálculo de membresía
+- Método `_plot_membership_with_scores()` para visualización
+- Colores consistentes entre ambas gráficas
+
+**Testing:**
+- `test_fuzzy_visualization.py` - Validación de visualizaciones
+- `test_final_integration.py` - Test de integración completa
+
+---
+
+### 🔧 v2.1.2 (Octubre 2025) - Custom Movies Integration Fix
+**Correcciones críticas:**
+- 🐛 **FIX**: Películas personalizadas ahora aparecen en recomendaciones
+- 🔄 **FIX**: Normalización de columna `main_actors` → `actors`
+- 💾 **FIX**: Persistencia correcta en `custom_movies.csv`
+
+**Cambios técnicos:**
+- Modificado `initialize_system()` en main.py líneas 111-126
+- Actualizado `preprocessor.py` para aceptar custom movies
+- Validación con test case "Nina" como película de prueba
+
+**Documentación:**
+- `FIXES_v2.1.2.md` - Análisis completo del fix (2800+ líneas)
+- Root cause analysis detallado
+- Casos de prueba y validación
+
+**Testing:**
+- `test_nina.py` - Validación específica de película custom
+
+---
+
+### 🎨 v2.0+ (Septiembre 2025) - Modern Interactive Interface
+**Nuevas características:**
+- 🖥️ Interfaz con Rich library para UI moderna
+- 📊 Visualizaciones con matplotlib y seaborn
+- 🎯 13 opciones en menú interactivo
+- 👤 Sistema de perfiles de usuario
+- 📦 Modo batch para múltiples usuarios
+- 💾 Export a CSV y JSON
+- 🎬 Opción para agregar películas personalizadas
+- 📋 Visualización de información del dataset
+
+**Mejoras de usabilidad:**
+- Tablas formateadas con colores
+- Progress bars para operaciones largas
+- Mensajes informativos estilizados
+- Confirmaciones para operaciones destructivas
+
+---
+
+### 🚀 v1.0 (Septiembre 2025) - Release Inicial
+**Características principales:**
+- ⚙️ Sistema de inferencia Mamdani completo
+- 📐 15 reglas difusas implementadas
+- 🎯 4 variables fuzzy (user_rating, actor_popularity, genre_match, recommendation)
+- 📊 Funciones de membresía triangulares y trapezoidales
+- 🎬 Dataset de 100+ películas
+- 📝 Documentación ARCHITECTURE.md e IMRAD.md
+- 🧪 Motor de recomendaciones funcional
+- 📈 Visualizaciones básicas
+
+**Algoritmos:**
+- Fuzzificación con scikit-fuzzy
+- Agregación con operador máximo
+- Defuzzificación por centroide
+- Preprocesamiento de datos con pandas
+
+---
+
 ##  Estado del Proyecto
 
 ```
 ✅ Sistema de inferencia Mamdani completo
 ✅ 15 reglas difusas implementadas
 ✅ Múltiples modos de operación
-✅ Interfaz interactiva amigable
-✅ Documentación completa
+✅ Interfaz interactiva amigable con Rich UI
+✅ Documentación completa (12,000+ líneas)
 ✅ Ejemplos de uso
 ✅ Pruebas exhaustivas
+✅ Películas personalizadas integradas (v2.1.2)
+✅ Visualizaciones de membresía fuzzy (v2.2.0)
+✅ Sistema de indicadores visuales con estrellas (v2.2.0)
+✅ Generación dual de gráficas (recommendations + membership)
 🔄 Optimización continua de rendimiento
 🔄 Expansión de reglas difusas
 📋 Integración con APIs externas (planeado)

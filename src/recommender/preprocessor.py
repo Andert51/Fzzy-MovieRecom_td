@@ -721,9 +721,9 @@ class DataPreprocessor:
             if genre in user_preferences:
                 match_scores.append(user_preferences[genre])
             else:
-                match_scores.append(25.0)  # Default score for unknown genres
+                match_scores.append(5.0)  # Severe penalty for non-preferred genres (was 25.0)
         
-        return max(match_scores) if match_scores else 25.0
+        return max(match_scores) if match_scores else 5.0
     
     def _weighted_genre_overlap(self, movie_genres: List[str], 
                                user_preferences: Dict[str, float]) -> float:

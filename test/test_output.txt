@@ -1,0 +1,46 @@
+
++========================================================================================+
+|                        FUZZY LOGIC MOVIE RECOMMENDATION SYSTEM                         |
+|                              v2.0.0 | AndrΘs Torres Ceja                               |
++========================================================================================+
+
+[OK] Loaded 78 movies
+Created 15 fuzzy rules for movie recommendation
+Fuzzy Movie Recommender initialized with 15 rules
+Defuzzification method: centroid
+Data Preprocessor initialized with:
+  - Genre matching: weighted_overlap
+  - Actor popularity: combined_score
+Data cleaning: 3 invalid records removed
+Movie database loaded: 75 movies
+[OK] System initialized successfully
+  Movies      -> 78
+  Fuzzy Rules -> 15
+  Variables   -> 4
+  Inference   -> Mamdani
+
+MAIN MENU
+---------
+
+  [1] Generate Movie Recommendations
+  [2] Visualize Fuzzy Logic System
+  [3] Analyze User Preferences
+  [4] View System Dashboard
+  [5] Explore Movie Database
+  [6] Test Fuzzy Inference
+  [7] Add Custom Movie
+  [8] Export Current Dataset
+  [9] View Recommendation History
+  [10] Generate Sample Dataset
+  [11] Manage Datasets
+  [12] Exit
+
+-> Select option [1]: 
++-- MOVIE RECOMMENDATION GENERATOR ------------------------------------------------------+
++----------------------------------------------------------------------------------------+
+
+i Please provide your preferences:
+
+-> Preferred genres (comma-separated) [Action, Drama]: 
+
+Interrupted by user. Goodbye!

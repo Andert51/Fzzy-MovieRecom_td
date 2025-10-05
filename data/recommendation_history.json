@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": "2025-10-05T17:03:38.702578",
+    "inputs": {
+      "user_rating": 8.0,
+      "preferred_genres": [
+        "Romance Thriller"
+      ],
+      "actor_popularity": 50.0,
+      "genre_match": 70.0
+    },
+    "output": 63.116778954122545,
+    "movie": "Summer Romance"
+  },
+  {
+    "timestamp": "2025-10-05T17:04:11.359208",
+    "inputs": {
+      "user_rating": 9.0,
+      "preferred_genres": [
+        "Romance"
+      ],
+      "actor_popularity": 50.0,
+      "genre_match": 70.0
+    },
+    "output": 93.57971014492755,
+    "movie": "Lhyann 2"
+  },
+  {
+    "timestamp": "2025-10-05T17:04:35.610304",
+    "inputs": {
+      "user_rating": 9.0,
+      "preferred_genres": [
+        "Thriller"
+      ],
+      "actor_popularity": 50.0,
+      "genre_match": 70.0
+    },
+    "output": 93.63636363636364,
+    "movie": "Nina"
+  },
+  {
+    "timestamp": "2025-10-05T17:04:56.459241",
+    "inputs": {
+      "user_rating": 9.0,
+      "preferred_genres": [
+        "Romance Thriller"
+      ],
+      "actor_popularity": 50.0,
+      "genre_match": 70.0
+    },
+    "output": 63.116778954122545,
+    "movie": "Summer Romance"
+  }
+]

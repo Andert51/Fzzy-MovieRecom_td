@@ -695,11 +695,11 @@ class MovieRecommendationEngine:
             favorite_actors = user_preferences.get('favorite_actors', [])
             min_rating = user_preferences.get('min_rating', 5.0)
             
-            # Create explicit preferences dictionary
+            # Create explicit preferences dictionary with CORRECT FORMAT
+            # preprocessor expects: {'genres': {genre: score}, 'actors': {actor: score}}
             explicit_preferences = {
-                'preferred_genres': preferred_genres,
-                'favorite_actors': favorite_actors,
-                'min_rating_threshold': min_rating
+                'genres': {genre: 100.0 for genre in preferred_genres},  # Dict with scores
+                'actors': {actor: 90.0 for actor in favorite_actors}
             }
             
             # Create user profile
@@ -729,7 +729,8 @@ class MovieRecommendationEngine:
                     'genres': '|'.join(movie_features.genres) if isinstance(movie_features.genres, list) else movie_features.genres,
                     'actors': ', '.join(movie_features.main_actors[:3]) if isinstance(movie_features.main_actors, list) else str(movie_features.main_actors),
                     'average_rating': movie_features.average_rating,
-                    'release_year': getattr(movie_features, 'release_year', 2020)
+                    'release_year': getattr(movie_features, 'release_year', 2020),
+                    'genre_match_score': movie_features.genre_match_score  # Expose for UI
                 }
                 
                 # Get score and explanation from fuzzy result

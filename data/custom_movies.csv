@@ -1,0 +1,5 @@
+movie_id,title,genres,actors,director,average_rating,release_year,custom_added,added_timestamp
+custom_test_001,Super Comedy Movie,Comedy,Jim Carrey|Chris Rock,Test Director,9.8,2025,True,2025-10-05T16:00:00
+custom_test_002,Amazing Drama,Drama,Actor A|Actor B,Test Director 2,9.5,2024,True,2025-10-05T16:00:00
+custom_1759703859,Nina,Thriller,"Nina, Vin Diessel",Gretta Thumberg,9.8,2025,True,2025-10-05T16:37:39.701076
+custom_1759704578,Lhyann 2,Romance,Guadalupe Arellano,Claudia Sheinbaum,9.6,1996,True,2025-10-05T16:49:38.376736
