@@ -11,4 +11,4 @@ Student ID: 148252CF
 
 __version__ = "1.0.0"
 __author__ = "Andrés Torres Ceja"
-__student_id__ = "148252CF"
+__student_id__ = "148252"
