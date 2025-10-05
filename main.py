@@ -1,23 +1,21 @@
 """
 Fuzzy Logic Movie Recommendation System - Main Application
-Sistema de Recomendación de Películas con Lógica Difusa
 
 This is the main application demonstrating the complete fuzzy logic movie recommendation system.
-Esta es la aplicación principal que demuestra el sistema completo de recomendación de películas con lógica difusa.
 
 Author: Andrés Torres Ceja
-Student ID: 148252CF
-Course: Soft Computing - Fuzzy Logic Applications
+Student ID: 148252
+Course: Soft Computing - Fuzzy Logic Applications - Universidad de Guanajuato
 
-Features / Características:
-- Complete Mamdani fuzzy inference system / Sistema completo de inferencia difusa Mamdani
-- Advanced membership functions / Funciones de membresía avanzadas
-- Comprehensive rule engine / Motor de reglas comprensivo
-- Real-time recommendation generation / Generación de recomendaciones en tiempo real
-- Data quality assessment / Evaluación de calidad de datos
-- Interactive user interface / Interfaz de usuario interactiva
-- Performance monitoring / Monitoreo de rendimiento
-- Detailed explanations / Explicaciones detalladas
+Features
+- Complete Mamdani fuzzy inference system
+- Advanced membership functions
+- Comprehensive rule engine
+- Real-time recommendation generation
+- Data quality assessment
+- Interactive user interface
+- Performance monitoring
+- Detailed explanations
 
 Usage:
     python main.py [--demo] [--interactive] [--batch-test] [--generate-data]
