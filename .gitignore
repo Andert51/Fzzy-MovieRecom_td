@@ -1,3 +1,6 @@
 # python virtual environment
 .venv/
 
+#visual studio code
+.vscode/
+

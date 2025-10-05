@@ -134,9 +134,9 @@ class MovieRecommendationEngine:
         
         # Configuration
         self.config = {
-            'defuzzification_method': defuzzification_method.value,
-            'genre_matching_strategy': genre_matching_strategy.value,
-            'actor_popularity_source': actor_popularity_source.value,
+            'defuzzification_method': defuzzification_method.value if hasattr(defuzzification_method, 'value') else str(defuzzification_method),
+            'genre_matching_strategy': genre_matching_strategy.value if hasattr(genre_matching_strategy, 'value') else str(genre_matching_strategy),
+            'actor_popularity_source': actor_popularity_source.value if hasattr(actor_popularity_source, 'value') else str(actor_popularity_source),
             'min_recommendation_score': 25.0,
             'max_recommendations': 50,
             'confidence_threshold': 0.3
@@ -695,38 +695,46 @@ class MovieRecommendationEngine:
             favorite_actors = user_preferences.get('favorite_actors', [])
             min_rating = user_preferences.get('min_rating', 5.0)
             
+            # Create explicit preferences dictionary
+            explicit_preferences = {
+                'preferred_genres': preferred_genres,
+                'favorite_actors': favorite_actors,
+                'min_rating_threshold': min_rating
+            }
+            
             # Create user profile
             self.create_user_profile(
                 user_id=user_id,
                 rating_history=rating_history,
-                preferred_genres=preferred_genres,
-                favorite_actors=favorite_actors,
-                min_rating_threshold=min_rating
+                explicit_preferences=explicit_preferences
             )
             
             # Generate recommendations
             session = self.generate_recommendations(
                 user_id=user_id,
                 num_recommendations=num_recommendations,
-                mode=RecommendationMode.STANDARD
+                mode=RecommendationMode.PERSONALIZED
             )
             
             # Convert to expected format for main.py
             results = []
             for item in session.recommendations:
+                # Access movie features from RecommendationItem
+                movie_features = item.movie_features
+                
                 # Create movie dictionary
                 movie_dict = {
-                    'movie_id': item.movie_id,
-                    'title': item.title,
-                    'genres': item.genres,
-                    'actors': item.actors,
-                    'average_rating': item.average_rating,
-                    'release_year': getattr(item, 'release_year', 2020)
+                    'movie_id': movie_features.movie_id,
+                    'title': movie_features.title,
+                    'genres': '|'.join(movie_features.genres) if isinstance(movie_features.genres, list) else movie_features.genres,
+                    'actors': ', '.join(movie_features.main_actors[:3]) if isinstance(movie_features.main_actors, list) else str(movie_features.main_actors),
+                    'average_rating': movie_features.average_rating,
+                    'release_year': getattr(movie_features, 'release_year', 2020)
                 }
                 
-                # Get score and explanation
-                score = item.fuzzy_score
-                explanation = item.reason
+                # Get score and explanation from fuzzy result
+                score = item.fuzzy_result.recommendation_score
+                explanation = item.recommendation_reason
                 
                 results.append((movie_dict, score, explanation))
             

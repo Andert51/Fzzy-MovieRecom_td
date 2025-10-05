@@ -105,7 +105,9 @@ class FuzzyMovieRecommender:
         self.recommendation_history = []
         
         print(f"Fuzzy Movie Recommender initialized with {len(self.rule_engine.rules)} rules")
-        print(f"Defuzzification method: {defuzzification_method.value}")
+        # Handle both string and enum types for defuzzification_method
+        method_str = defuzzification_method.value if hasattr(defuzzification_method, 'value') else str(defuzzification_method)
+        print(f"Defuzzification method: {method_str}")
     
     def fuzzify_inputs(self, user_rating: float, actor_popularity: float, 
                       genre_match: float) -> Dict[str, Dict[str, float]]:
@@ -210,7 +212,7 @@ class FuzzyMovieRecommender:
             activated_rules=activated_rules,
             membership_degrees=membership_degrees,
             explanation=explanation,
-            defuzzification_method=self.defuzzification_method.value
+            defuzzification_method=self.defuzzification_method.value if hasattr(self.defuzzification_method, 'value') else str(self.defuzzification_method)
         )
         
         # Store for history and analysis
@@ -247,7 +249,7 @@ class FuzzyMovieRecommender:
                     activated_rules={},
                     membership_degrees={},
                     explanation=f"Error in processing: {e}",
-                    defuzzification_method=self.defuzzification_method.value
+                    defuzzification_method=self.defuzzification_method.value if hasattr(self.defuzzification_method, 'value') else str(self.defuzzification_method)
                 ))
         
         return results
@@ -578,7 +580,7 @@ class FuzzyMovieRecommender:
         return {
             'total_rules': len(self.rule_engine.rules),
             'variables': list(self.variables.keys()),
-            'defuzzification_method': self.defuzzification_method.value,
+            'defuzzification_method': self.defuzzification_method.value if hasattr(self.defuzzification_method, 'value') else str(self.defuzzification_method),
             'recommendation_history_count': len(self.recommendation_history),
             'rule_statistics': self.rule_engine.get_rule_statistics(),
             'variable_universes': {

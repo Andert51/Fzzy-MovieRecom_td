@@ -1,18 +1,11 @@
 """
 Fuzzy Logic Components Package
-Paquete de Componentes de Lógica Difusa
 
 This package contains the core fuzzy logic implementation including:
 - Fuzzy variables and membership functions
 - Fuzzy rule engine with comprehensive rules
 - Mamdani fuzzy inference system
 - Advanced defuzzification methods
-
-Este paquete contiene la implementación central de lógica difusa incluyendo:
-- Variables difusas y funciones de membresía
-- Motor de reglas difusas con reglas comprensivas
-- Sistema de inferencia difusa Mamdani
-- Métodos avanzados de defuzzificación
 """
 
 # Import modules - using try/except for graceful fallback
