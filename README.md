@@ -60,7 +60,7 @@ A partir de estos factores, el sistema genera una **puntuación de recomendació
 - **Curso**: Soft Computing - Fuzzy Logic Applications
 - **Institución**: Universidad de Guanajuato
 - **Estudiante**: Andrés Torres Ceja
-- **ID**: 148252CF
+- **ID**: 148252
 - **Versión**: 1.0.0
 
 ---
