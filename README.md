@@ -371,7 +371,7 @@ Usuario                Data Loader           Preprocessor
 
 ---
 
-## 🔧 Componentes del Sistema
+## Componentes del Sistema
 
 ### 1. Sistema de Lógica Difusa (`src/fuzzy_logic/`)
 
