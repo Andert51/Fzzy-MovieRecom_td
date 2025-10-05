@@ -28,9 +28,9 @@ except ImportError:
     SKFUZZY_AVAILABLE = False
     print("Warning: scikit-fuzzy not available. Some features may be limited.")
 
-from .variables import FuzzyVariables
-from .membership_func import MembershipFunctions
-from .rules import FuzzyRuleEngine, FuzzyCondition, RuleOperator
+from fuzzy_logic.variables import FuzzyVariables
+from fuzzy_logic.membership_func import MembershipFunctions
+from fuzzy_logic.rules import FuzzyRuleEngine, FuzzyCondition, RuleOperator
 
 warnings.filterwarnings('ignore', category=RuntimeWarning)
 

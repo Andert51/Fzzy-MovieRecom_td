@@ -25,10 +25,10 @@ from datetime import datetime
 import warnings
 
 # Import our custom modules
-from ..fuzzy_logic.fuzzy_model import FuzzyMovieRecommender, RecommendationResult, DefuzzificationMethod
-from ..fuzzy_logic.variables import FuzzyVariables
-from ..fuzzy_logic.rules import FuzzyRuleEngine
-from .preprocessor import DataPreprocessor, UserProfile, MovieFeatures, GenreMatchingStrategy, ActorPopularitySource
+from fuzzy_logic.fuzzy_model import FuzzyMovieRecommender, RecommendationResult, DefuzzificationMethod
+from fuzzy_logic.variables import FuzzyVariables
+from fuzzy_logic.rules import FuzzyRuleEngine
+from recommender.preprocessor import DataPreprocessor, UserProfile, MovieFeatures, GenreMatchingStrategy, ActorPopularitySource
 
 warnings.filterwarnings('ignore')
 
@@ -660,6 +660,82 @@ class MovieRecommendationEngine:
                 print(f"  • Average User Satisfaction: {avg_satisfaction:.2f}/10")
         
         print("="*80)
+    
+    # Additional methods for compatibility with main.py
+    def load_data(self, movie_data: pd.DataFrame) -> None:
+        """
+        Load movie data into the system (convenience method for main.py compatibility).
+        
+        Args:
+            movie_data (pd.DataFrame): Movie dataset to load
+        """
+        self.initialize_system(movie_data)
+    
+    def get_recommendations(self, user_preferences: Dict[str, Any], 
+                          num_recommendations: int = 5) -> List[Tuple[Dict[str, Any], float, str]]:
+        """
+        Get movie recommendations based on user preferences (simplified interface for main.py).
+        
+        Args:
+            user_preferences (Dict[str, Any]): User preferences dictionary
+            num_recommendations (int): Number of recommendations to return
+            
+        Returns:
+            List[Tuple[Dict[str, Any], float, str]]: List of (movie_dict, score, explanation) tuples
+        """
+        try:
+            # Create a temporary user profile
+            user_id = f"temp_user_{hash(str(user_preferences))}"
+            
+            # Create user profile from preferences
+            rating_history = []  # Simplified for demo
+            
+            # Extract preferences
+            preferred_genres = user_preferences.get('preferred_genres', [])
+            favorite_actors = user_preferences.get('favorite_actors', [])
+            min_rating = user_preferences.get('min_rating', 5.0)
+            
+            # Create user profile
+            self.create_user_profile(
+                user_id=user_id,
+                rating_history=rating_history,
+                preferred_genres=preferred_genres,
+                favorite_actors=favorite_actors,
+                min_rating_threshold=min_rating
+            )
+            
+            # Generate recommendations
+            session = self.generate_recommendations(
+                user_id=user_id,
+                num_recommendations=num_recommendations,
+                mode=RecommendationMode.STANDARD
+            )
+            
+            # Convert to expected format for main.py
+            results = []
+            for item in session.recommendations:
+                # Create movie dictionary
+                movie_dict = {
+                    'movie_id': item.movie_id,
+                    'title': item.title,
+                    'genres': item.genres,
+                    'actors': item.actors,
+                    'average_rating': item.average_rating,
+                    'release_year': getattr(item, 'release_year', 2020)
+                }
+                
+                # Get score and explanation
+                score = item.fuzzy_score
+                explanation = item.reason
+                
+                results.append((movie_dict, score, explanation))
+            
+            return results
+            
+        except Exception as e:
+            logger.error(f"Error getting recommendations: {e}")
+            # Return empty results if error
+            return []
 
 
 # Example usage and testing
@@ -743,3 +819,6 @@ if __name__ == "__main__":
     if session.recommendations:
         engine.update_user_feedback(session.session_id, 1, 8.5, "Great recommendation!")
         print(f"\nUser feedback recorded for top recommendation")
+
+
+
