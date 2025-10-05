@@ -48,9 +48,9 @@ Este proyecto implementa un **Sistema de Recomendación de Películas** basado e
 
 El sistema toma en cuenta tres factores principales para recomendar películas:
 
-1. ** Calificación del Usuario**: Historial de calificaciones que el usuario ha dado a películas
-2. ** Popularidad de Actores**: Nivel de reconocimiento de los actores principales
-3. ** Coincidencia de Género**: Qué tan bien coincide el género de la película con las preferencias del usuario
+1. **Calificación del Usuario**: Historial de calificaciones que el usuario ha dado a películas
+2. **Popularidad de Actores**: Nivel de reconocimiento de los actores principales
+3. **Coincidencia de Género**: Qué tan bien coincide el género de la película con las preferencias del usuario
 
 A partir de estos factores, el sistema genera una **puntuación de recomendación** (0-100) que indica qué tan adecuada es una película para el usuario.
 
@@ -77,10 +77,10 @@ A partir de estos factores, el sistema genera una **puntuación de recomendació
 
 ###  Modos de Operación
 
-1. ** Modo Demo**: Demostración completa del sistema
-2. ** Modo Interactivo**: Interfaz amigable para el usuario
-3. ** Modo de Pruebas**: Testing exhaustivo del sistema
-4. ** Generación de Datos**: Creación de datasets de muestra
+1. **Modo Demo**: Demostración completa del sistema
+2. **Modo Interactivo**: Interfaz amigable para el usuario
+3. **Modo de Pruebas**: Testing exhaustivo del sistema
+4. **Generación de Datos**: Creación de datasets de muestra
 
 ###  Capacidades Analíticas
 
